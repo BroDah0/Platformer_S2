@@ -64,14 +64,7 @@ public class Player : MonoBehaviour
     }
     
     void FixedUpdate()
-    {
-        // Sprint
-        if(is_sprinting)
-        {
-            Debug.Log("Sprint Triggered");
-            new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
-        }
-        
+    {       
         // Jump
         if (is_jumping && grounded && !canClimb)
         {           
@@ -89,9 +82,14 @@ public class Player : MonoBehaviour
 
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
-        // Slide
+        // Sprint
+        if(is_sprinting)
+        {
+            Debug.Log("Sprint Triggered");
+            target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
+        }
 
-
+        // Sprint
 
 
 
