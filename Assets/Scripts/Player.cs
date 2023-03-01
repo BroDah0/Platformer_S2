@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
-    float Climb_speed = 100.0f;
+    float Climb_speed = 150.0f;
     public bool isLadder = false;
     public bool canClimb = false;
     bool CheckSphere;
@@ -50,8 +50,16 @@ public class Player : MonoBehaviour
             is_jumping = true;
         }
     }
+    
     void FixedUpdate()
     {
+        // Sprint 
+        
+        
+
+
+
+
         // Jump
         if (is_jumping && grounded && !canClimb)
         {           
@@ -69,6 +77,14 @@ public class Player : MonoBehaviour
 
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
+        // Slide
+
+
+
+
+
+
+
         // Climb
         if (canClimb && vertical_value != 0)
         {
@@ -80,6 +96,7 @@ public class Player : MonoBehaviour
         
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
+    
     private void Crouch()
     {
         aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
@@ -103,6 +120,7 @@ public class Player : MonoBehaviour
             animController.SetBool("Crouching", false);
         }
     }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         grounded = true;
@@ -114,6 +132,7 @@ public class Player : MonoBehaviour
             grounded = false;
         }       
     }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
@@ -124,6 +143,7 @@ public class Player : MonoBehaviour
             animController.SetBool("Climbing", false);
         }
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         animController.SetBool("Jumping", false);    
