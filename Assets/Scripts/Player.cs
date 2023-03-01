@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     float jumpForce = 12f;
     [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 400.0f;
+    [SerializeField] float sprintSpeed_horizontal = 800.0f;
     [SerializeField] bool is_jumping = false;
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
+    [SerializeField] bool is_sprinting = false;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
     float Climb_speed = 150.0f;
     public bool isLadder = false;
@@ -49,17 +51,20 @@ public class Player : MonoBehaviour
         {
             is_jumping = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            is_sprinting = true;
+        } 
+        
+        if(Input.GetKeyUp(KeyCode.LeftShift)) 
+        {
+            is_sprinting = false;
+        }    
     }
     
     void FixedUpdate()
     {
-        // Sprint 
-        
-        
-
-
-
-
         // Jump
         if (is_jumping && grounded && !canClimb)
         {           
@@ -97,6 +102,19 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
     
+    private void Sprint()
+    {
+        if(is_sprinting)
+        {
+            Debug.Log("Sprint Triggered");
+            Vector2 target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
+        }
+        else
+        {
+            Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
+        }
+    }
+
     private void Crouch()
     {
         aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
