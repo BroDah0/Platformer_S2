@@ -1,2 +1,17 @@
-Dev de la mécanique de movement2D (run, jump, crouch, climb)
+TRACKED
+
+Alpha avec place holders 
+
+Mécaniques implémentées : 
+
+-Mouvement 2D de base (x, y)
+-Jump
+-Crouch
+-Climb
+-Sprint
+-Slide (en cours)
+-Healt bar (en cours)
+-Stamina bar
+-Ennemy IA
+
 
