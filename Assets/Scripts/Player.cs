@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     float horizontal_value;
     float vertical_value;
     Vector2 ref_velocity = Vector2.zero;
+    Vector2 target_velocity;
     float jumpForce = 12f;
     [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 400.0f;
@@ -45,6 +46,9 @@ public class Player : MonoBehaviour
 
         if (horizontal_value > 0) sr.flipX = false;
         else if (horizontal_value < 0) sr.flipX = true;
+
+        if (rb.velocity.y < 0) rb.gravityScale = 5;
+        else rb.gravityScale = 3;
         
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
    
@@ -53,15 +57,11 @@ public class Player : MonoBehaviour
             is_jumping = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             is_sprinting = true;
+            StartCoroutine(Sprint());
         } 
-        
-        if(Input.GetKeyUp(KeyCode.LeftShift)) 
-        {
-            is_sprinting = false;
-        }
 
         if (Input.GetButton("Crouch"))
         {
@@ -87,12 +87,18 @@ public class Player : MonoBehaviour
 
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
-        // Sprint
-        if(is_sprinting)
+        if (is_sprinting)
         {
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
 
+        // Sprint
+        //if(is_sprinting)
+        //{
+        //    
+        //}
+
+        // croUch
         aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
         CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
         if (is_crouching && grounded)
@@ -131,8 +137,17 @@ public class Player : MonoBehaviour
         
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
- 
-    
+
+    IEnumerator Sprint()
+    {
+        Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
+        target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
+        yield return new WaitForSeconds(1.5f);
+        is_sprinting = false;
+    }
+
+
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         grounded = true;
