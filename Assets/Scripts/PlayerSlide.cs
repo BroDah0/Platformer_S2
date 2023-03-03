@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class PlayerSlide : MonoBehaviour
 {
-   /*public bool is_sliding = false;
+   public bool is_sliding = false;
 
-   Player player;
+   public Player player;
 
-   Rigidbody2D rb;
+   public Rigidbody2D rb;
 
-   Animator animController;
+   public SpriteRenderer sr;
 
-   BoxCollider2d normalColl;
-   BoxCollider2d slideColl;
+   public Animator animController;
+
+   public BoxCollider2D normalColl;
+   public BoxCollider2D slideColl;
 
    [SerializeField] public float SlideSpeed = 500.0f;
 
-   private void Update()
+    public void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
    {
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -34,7 +41,7 @@ public class PlayerSlide : MonoBehaviour
         normalColl.enabled = false;
         slideColl.enabled = true;
 
-        if (!Player.sprite.flipX)
+        if (sr.flipX)
 
         {
             rb.AddForce (Vector2.right * SlideSpeed);
@@ -56,6 +63,6 @@ public class PlayerSlide : MonoBehaviour
         normalColl.enabled = true;
         slideColl.enabled = false;
         is_sliding = true;
-   }*/
+   }
 
 }
