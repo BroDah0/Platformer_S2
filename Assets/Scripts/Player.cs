@@ -61,7 +61,16 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftShift)) 
         {
             is_sprinting = false;
-        } 
+        }
+
+        if (Input.GetButton("Crouch"))
+        {
+            is_crouching = true;
+        }
+        else
+        {
+            is_crouching = false;
+        }
 
     }
     
@@ -76,12 +85,6 @@ public class Player : MonoBehaviour
             grounded = false;
         }
 
-        // Crouch
-        if (Input.GetButton("Vertical") && grounded)
-        {
-            Crouch();
-        }
-
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
         // Sprint
@@ -89,6 +92,27 @@ public class Player : MonoBehaviour
         {
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
+
+        aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
+        CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
+        if (is_crouching && grounded)
+        {
+            moveSpeed_horizontal = 200f;
+            cap.offset = new Vector2(0.1f, -0.6f);
+            cap.size = new Vector2(1.1f, 0.8f);
+            cap.direction = CapsuleDirection2D.Horizontal;
+            animController.SetBool("Crouching", true);
+        }
+        else if(CheckSphere == false)
+        {
+            is_crouching = false;
+            moveSpeed_horizontal = 400f;
+            cap.offset = new Vector2(0f, -0.35f);
+            cap.size = new Vector2(1f, 1.3f);
+            cap.direction = CapsuleDirection2D.Vertical;
+            animController.SetBool("Crouching", false);
+        }
+
 
         // Slide
 
@@ -107,30 +131,7 @@ public class Player : MonoBehaviour
         
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
-
-    private void Crouch()
-    {
-        aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
-        CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && grounded)
-        {
-            is_crouching = true;
-            moveSpeed_horizontal = 200f;
-            cap.offset = new Vector2(0.1f, -0.6f);
-            cap.size = new Vector2(1.1f, 0.8f);
-            cap.direction = CapsuleDirection2D.Horizontal;
-            animController.SetBool("Crouching", true);
-        }
-        else if (CheckSphere == false)
-        {
-            is_crouching = false;
-            moveSpeed_horizontal = 400f;
-            cap.offset = new Vector2(0f, -0.35f);
-            cap.size = new Vector2(1f, 1.3f);
-            cap.direction = CapsuleDirection2D.Vertical;
-            animController.SetBool("Crouching", false);
-        }
-    }
+ 
     
     private void OnTriggerStay2D(Collider2D collision)
     {
