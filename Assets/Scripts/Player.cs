@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     float jumpForce = 12f;
     [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 400.0f;
-    [SerializeField] float sprintSpeed_horizontal = 800.0f;
+    [SerializeField] float sprintSpeed_horizontal = 700.0f;
     [SerializeField] bool is_jumping = false;
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animController = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -60,7 +61,8 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftShift)) 
         {
             is_sprinting = false;
-        }    
+        } 
+
     }
     
     void FixedUpdate()
@@ -75,7 +77,7 @@ public class Player : MonoBehaviour
         }
 
         // Crouch
-        if (Input.GetButton("Vertical") && grounded);
+        if (Input.GetButton("Vertical") && grounded)
         {
             Crouch();
         }
@@ -89,7 +91,7 @@ public class Player : MonoBehaviour
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
 
-        // Sprint
+        // Slide
 
 
 
