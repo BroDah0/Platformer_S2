@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSlide : MonoBehaviour
 {
-   public bool is_sliding = false;
+   /*public bool is_sliding = false;
 
    Player player;
 
@@ -56,6 +56,6 @@ public class PlayerSlide : MonoBehaviour
         normalColl.enabled = true;
         slideColl.enabled = false;
         is_sliding = true;
-   }
+   }*/
 
 }
