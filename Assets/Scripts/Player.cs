@@ -87,7 +87,6 @@ public class Player : MonoBehaviour
         // Sprint
         if(is_sprinting)
         {
-            Debug.Log("Sprint Triggered");
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
 
