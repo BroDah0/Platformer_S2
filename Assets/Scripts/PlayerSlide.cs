@@ -29,6 +29,7 @@ public class PlayerSlide : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             preformSlide();
+            Debug.Log("Ca marche ou pas la");
         }
    }
 

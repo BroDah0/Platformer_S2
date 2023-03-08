@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animController;
+    TrailRenderer tre;
     float horizontal_value;
     float vertical_value;
     Vector2 ref_velocity = Vector2.zero;
@@ -20,6 +22,11 @@ public class Player : MonoBehaviour
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
     [SerializeField] bool is_sprinting = false;
+    [SerializeField] private float slidingVelocity = 10f;
+    [SerializeField] private float slidingTime = 0.3f;
+    private Vector2 slidingDir;
+    private bool is_sliding;
+    private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
     float Climb_speed = 150.0f;
     public bool isLadder = false;
@@ -35,6 +42,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animController = GetComponent<Animator>();
+        tre = GetComponent<TrailRenderer>();
 
     }
 
@@ -49,9 +57,9 @@ public class Player : MonoBehaviour
 
         if (rb.velocity.y < 0) rb.gravityScale = 5;
         else rb.gravityScale = 3;
-        
+
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
-   
+
         if (Input.GetButtonDown("Jump") && grounded && !is_crouching)
         {
             is_jumping = true;
@@ -61,7 +69,7 @@ public class Player : MonoBehaviour
         {
             is_sprinting = true;
             StartCoroutine(Sprint());
-        } 
+        }
 
         if (Input.GetButton("Crouch"))
         {
@@ -71,6 +79,35 @@ public class Player : MonoBehaviour
         {
             is_crouching = false;
         }
+
+        if (Input.GetButton("Slide") && canSlide)
+        {
+            is_sliding = true;
+            canSlide = false;
+            tre.emitting = true;
+            slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); 
+            if (slidingDir == Vector2.zero)
+            {
+                slidingDir = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(stopSliding());
+      
+        }
+
+        animController.SetBool("Crouch", is_sliding); 
+
+        if (is_sliding)
+        {
+            rb.velocity = slidingDir.normalized * slidingVelocity;
+            return;
+        }
+
+        if(grounded)
+        {
+            canSlide = true;
+        }
+
+
 
     }
     
@@ -121,7 +158,11 @@ public class Player : MonoBehaviour
 
 
         // Slide
-
+        IEnumerator stopSliding()
+        {
+            yield return new WaitForSeconds(slidingTime);
+            tre.emitting = false;
+        }
 
 
 
@@ -166,7 +207,7 @@ public class Player : MonoBehaviour
         {
             canClimb = false;
             grounded = true;
-            rb.gravityScale = 3f;
+            rb.gravityScale = 8f;
             animController.SetBool("Climbing", false);
         }
     }
