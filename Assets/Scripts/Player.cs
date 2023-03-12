@@ -129,12 +129,6 @@ public class Player : MonoBehaviour
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
 
-        // Sprint
-        //if(is_sprinting)
-        //{
-        //    
-        //}
-
         // croUch
         aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
         CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
@@ -156,17 +150,6 @@ public class Player : MonoBehaviour
             animController.SetBool("Crouching", false);
         }
 
-
-        // Slide
-        IEnumerator stopSliding()
-        {
-            yield return new WaitForSeconds(slidingTime);
-            tre.emitting = false;
-        }
-
-
-
-
         // Climb
         if (canClimb && vertical_value != 0)
         {
@@ -178,7 +161,15 @@ public class Player : MonoBehaviour
         
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
-
+   
+    // Slide coroutine
+    IEnumerator stopSliding()
+    {
+        yield return new WaitForSeconds(slidingTime);
+        tre.emitting = false;
+    }
+    
+    // Sprint coroutine
     IEnumerator Sprint()
     {
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
