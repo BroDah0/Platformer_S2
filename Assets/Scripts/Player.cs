@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
 
         animController.SetBool("Crouch", is_sliding); 
 
+
         if (is_sliding)
         {
             rb.velocity = slidingDir.normalized * slidingVelocity;
@@ -167,6 +168,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(slidingTime);
         tre.emitting = false;
+        is_sliding = false;
     }
     
     // Sprint coroutine
