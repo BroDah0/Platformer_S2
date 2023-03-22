@@ -117,10 +117,10 @@ public class Player : MonoBehaviour
             tre.emitting = true;
             rb.gravityScale = 50f;
             slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-            /*if (slidingDir == Vector2.zero)
+            if (slidingDir == Vector2.zero)
             {
                 slidingDir = new Vector2(transform.localScale.x, 0);
-            }*/
+            }
             animController.SetBool("Crouch", is_sliding);
             StartCoroutine(stopSliding());
            
