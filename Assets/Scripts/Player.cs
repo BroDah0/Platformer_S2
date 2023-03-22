@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool is_sprinting = false;
     [SerializeField] private float slidingVelocity;
     [SerializeField] private float slidingTime = 0.3f;
+    [SerializeField] private bool cooldownSprint = false;
     private Vector2 slidingDir;
     private bool is_sliding;
     private bool canSlide = true;
@@ -38,10 +39,6 @@ public class Player : MonoBehaviour
     public bool canClimb = false;
     bool CheckSphere;
     private Vector2 aidepose;
-
-
-    [SerializeField] private float cooldownSlide = 0;
-    [SerializeField] private bool cooldownSprint = false;
 
     void Start()
     {
@@ -96,7 +93,7 @@ public class Player : MonoBehaviour
         }
         
         // Cooldown du slide
-        if (!canSlide && cooldownSlide < 3)
+        /*if (!canSlide && cooldownSlide < 3)
         {          
             cooldownSlide += Time.deltaTime;
         }
@@ -107,7 +104,7 @@ public class Player : MonoBehaviour
         {
             canSlide = true;
             cooldownSlide = 0;
-        }
+        }*/
 
         // Slide
         if (Input.GetButtonDown("Slide") && canSlide)
@@ -197,6 +194,9 @@ public class Player : MonoBehaviour
         tre.emitting = false;
         rb.gravityScale = 4;
         is_sliding = false;
+        yield return new WaitForSeconds(3f);
+        canSlide = true;
+
     }   
 
     // Sprint coroutine
