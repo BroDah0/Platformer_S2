@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -38,6 +39,10 @@ public class Player : MonoBehaviour
     bool CheckSphere;
     private Vector2 aidepose;
 
+
+    [SerializeField] private float cooldownSlide = 0;
+    [SerializeField] private bool cooldownSprint = false;
+
     void Start()
     {
         cap = GetComponent<CapsuleCollider2D>();
@@ -45,7 +50,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animController = GetComponent<Animator>();
         tre = GetComponent<TrailRenderer>();
-
+        
     }
 
  
@@ -70,18 +75,38 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            is_sprinting = true;
-            StartCoroutine(Sprint());
+            if (cooldownSprint == false)
+            {
+                is_sprinting = true;
+                StartCoroutine(Sprint());
+
+            }
+            
         }
 
         // Crouch
         if (Input.GetButton("Crouch"))
         {
             is_crouching = true;
+            is_sliding = false;
         }
         else
         {
             is_crouching = false;
+        }
+        
+        // Cooldown du slide
+        if (!canSlide && cooldownSlide < 3)
+        {          
+            cooldownSlide += Time.deltaTime;
+        }
+
+        if(cooldownSlide > 3) cooldownSlide= 3;
+
+        if (cooldownSlide == 3f)
+        {
+            canSlide = true;
+            cooldownSlide = 0;
         }
 
         // Slide
@@ -98,7 +123,7 @@ public class Player : MonoBehaviour
             }*/
             animController.SetBool("Crouch", is_sliding);
             StartCoroutine(stopSliding());
-      
+           
         }
 
         if (is_sliding)
@@ -107,10 +132,10 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if(grounded)
+        /*if(grounded )
         {
             canSlide = true;
-        }
+        }*/
     }
     
     void FixedUpdate()
@@ -172,8 +197,8 @@ public class Player : MonoBehaviour
         tre.emitting = false;
         rb.gravityScale = 4;
         is_sliding = false;
-    }
-    
+    }   
+
     // Sprint coroutine
     IEnumerator Sprint()
     {
@@ -181,8 +206,10 @@ public class Player : MonoBehaviour
         target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         yield return new WaitForSeconds(1.5f);
         is_sprinting = false;
+        cooldownSprint = true;
+        yield return new WaitForSeconds(3f);
+        cooldownSprint = false;
     }
-
 
     //Climbing
     private void OnTriggerStay2D(Collider2D collision)
