@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("ASCENT");
+        }
         // test pour voir si ca fonctionne
         if (Input.GetKeyDown(KeyCode.H))
         {

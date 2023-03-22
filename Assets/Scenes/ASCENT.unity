@@ -663,11 +663,10 @@ MonoBehaviour:
   is_sprinting: 0
   slidingVelocity: 25
   slidingTime: 0.3
+  cooldownSprint: 0
   smooth_time: 0.5
   isLadder: 0
   canClimb: 0
-  cooldownSlide: 3
-  cooldownSprint: 3
 --- !u!95 &694507428
 Animator:
   serializedVersion: 5

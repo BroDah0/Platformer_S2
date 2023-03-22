@@ -91,20 +91,6 @@ public class Player : MonoBehaviour
         {
             is_crouching = false;
         }
-        
-        // Cooldown du slide
-        /*if (!canSlide && cooldownSlide < 3)
-        {          
-            cooldownSlide += Time.deltaTime;
-        }
-
-        if(cooldownSlide > 3) cooldownSlide= 3;
-
-        if (cooldownSlide == 3f)
-        {
-            canSlide = true;
-            cooldownSlide = 0;
-        }*/
 
         // Slide
         if (Input.GetButtonDown("Slide") && canSlide)
