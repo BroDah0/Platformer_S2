@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Objets
     CapsuleCollider2D cap;
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animController;
     TrailRenderer tre;
+    [SerializeField] GameObject aide;
+
+    //Variables
     float horizontal_value;
     float vertical_value;
     Vector2 ref_velocity = Vector2.zero;
@@ -17,12 +21,12 @@ public class Player : MonoBehaviour
     float jumpForce = 12f;
     [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 400.0f;
-    [SerializeField] float sprintSpeed_horizontal = 700.0f;
+    [SerializeField] float sprintSpeed_horizontal = 600.0f;
     [SerializeField] bool is_jumping = false;
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
     [SerializeField] bool is_sprinting = false;
-    [SerializeField] private float slidingVelocity = 10f;
+    [SerializeField] private float slidingVelocity;
     [SerializeField] private float slidingTime = 0.3f;
     private Vector2 slidingDir;
     private bool is_sliding;
@@ -33,9 +37,7 @@ public class Player : MonoBehaviour
     public bool canClimb = false;
     bool CheckSphere;
     private Vector2 aidepose;
-    [SerializeField] GameObject aide;
 
-    // Start is called before the first frame update
     void Start()
     {
         cap = GetComponent<CapsuleCollider2D>();
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         horizontal_value = Input.GetAxis("Horizontal");
@@ -55,11 +57,12 @@ public class Player : MonoBehaviour
         if (horizontal_value > 0) sr.flipX = false;
         else if (horizontal_value < 0) sr.flipX = true;
 
-        if (rb.velocity.y < 0) rb.gravityScale = 5;
-        else rb.gravityScale = 3;
+        //if (rb.velocity.y < 0) rb.gravityScale = 5;
+        //else rb.gravityScale = 3;
 
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
 
+        // Sprint
         if (Input.GetButtonDown("Jump") && grounded && !is_crouching)
         {
             is_jumping = true;
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Sprint());
         }
 
+        // Crouch
         if (Input.GetButton("Crouch"))
         {
             is_crouching = true;
@@ -80,22 +84,22 @@ public class Player : MonoBehaviour
             is_crouching = false;
         }
 
-        if (Input.GetButton("Slide") && canSlide)
+        // Slide
+        if (Input.GetButtonDown("Slide") && canSlide)
         {
             is_sliding = true;
             canSlide = false;
             tre.emitting = true;
-            slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); 
-            if (slidingDir == Vector2.zero)
+            rb.gravityScale = 50f;
+            slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            /*if (slidingDir == Vector2.zero)
             {
                 slidingDir = new Vector2(transform.localScale.x, 0);
-            }
+            }*/
+            animController.SetBool("Crouch", is_sliding);
             StartCoroutine(stopSliding());
       
         }
-
-        animController.SetBool("Crouch", is_sliding); 
-
 
         if (is_sliding)
         {
@@ -107,9 +111,6 @@ public class Player : MonoBehaviour
         {
             canSlide = true;
         }
-
-
-
     }
     
     void FixedUpdate()
@@ -125,12 +126,13 @@ public class Player : MonoBehaviour
 
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
+        // Sprint
         if (is_sprinting)
         {
             target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         }
 
-        // croUch
+        // Crouch
         aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
         CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
         if (is_crouching && grounded)
@@ -168,6 +170,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(slidingTime);
         tre.emitting = false;
+        rb.gravityScale = 4;
         is_sliding = false;
     }
     
@@ -181,7 +184,7 @@ public class Player : MonoBehaviour
     }
 
 
-
+    //Climbing
     private void OnTriggerStay2D(Collider2D collision)
     {
         grounded = true;
