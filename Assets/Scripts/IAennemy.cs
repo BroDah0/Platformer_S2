@@ -15,7 +15,7 @@ public class IAennemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Waiting", 1f);
+        Invoke("Waiting", 1.5f);
     }
 
     // Update is called once per frame
