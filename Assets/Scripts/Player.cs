@@ -93,10 +93,13 @@ public class Player : MonoBehaviour
         }
 
         // Slide
-        if (Input.GetButtonDown("Slide") && canSlide)
+        if (Input.GetButtonDown("Slide") && canSlide && !is_crouching)
         {
             is_sliding = true;
             canSlide = false;
+            cap.offset = new Vector2(0.1f, -0.6f);
+            cap.size = new Vector2(1.1f, 0.8f);
+            cap.direction = CapsuleDirection2D.Horizontal;
             tre.emitting = true;
             rb.gravityScale = 50f;
             slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
@@ -106,6 +109,7 @@ public class Player : MonoBehaviour
             }
             animController.SetBool("Crouch", is_sliding);
             StartCoroutine(stopSliding());
+
            
         }
 
@@ -179,6 +183,9 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(slidingTime);
         tre.emitting = false;
         rb.gravityScale = 4;
+        cap.offset = new Vector2(0f, -0.35f);
+        cap.size = new Vector2(1f, 1.3f);
+        cap.direction = CapsuleDirection2D.Vertical;
         is_sliding = false;
         yield return new WaitForSeconds(3f);
         canSlide = true;
@@ -216,7 +223,7 @@ public class Player : MonoBehaviour
         {
             canClimb = false;
             grounded = true;
-            rb.gravityScale = 8f;
+            rb.gravityScale = 5f;
             animController.SetBool("Climbing", false);
         }
     }
