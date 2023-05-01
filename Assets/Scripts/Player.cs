@@ -97,8 +97,8 @@ public class Player : MonoBehaviour
         {
             is_sliding = true;
             canSlide = false;
-            cap.offset = new Vector2(0.1f, -0.6f);
-            cap.size = new Vector2(1.1f, 0.8f);
+            cap.offset = new Vector2(22.30882f, -22.64283f);
+            cap.size = new Vector2(57.15683f, 15.88799f);
             cap.direction = CapsuleDirection2D.Horizontal;
             tre.emitting = true;
             rb.gravityScale = 50f;
@@ -107,7 +107,6 @@ public class Player : MonoBehaviour
             {
                 slidingDir = new Vector2(transform.localScale.x, 0);
             }
-            animController.SetBool("Crouch", is_sliding);
             StartCoroutine(stopSliding());
 
            
@@ -183,8 +182,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(slidingTime);
         tre.emitting = false;
         rb.gravityScale = 4;
-        cap.offset = new Vector2(0f, -0.35f);
-        cap.size = new Vector2(1f, 1.3f);
+        cap.offset = new Vector2(0.3032157f, -0.1786781f);
+        cap.size = new Vector2(13.14533f, 59.856f);
         cap.direction = CapsuleDirection2D.Vertical;
         is_sliding = false;
         yield return new WaitForSeconds(3f);
