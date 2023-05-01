@@ -12131,7 +12131,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -33.92934, y: -13.555149}
+  - {x: -33.92934, y: -14.888331}
   - {x: -33.817894, y: -2.023266}
   - {x: -35.49812, y: -3.3542173}
   - {x: -36.294056, y: -2.3139677}
@@ -12139,7 +12139,9 @@ EdgeCollider2D:
   - {x: -19.69142, y: 5.800367}
   - {x: 12.187692, y: 5.9333606}
   - {x: 25.507015, y: 15.226254}
-  - {x: 36.23904, y: 7.4722776}
+  - {x: 36.101734, y: 7.5395384}
+  - {x: 34.236958, y: 7.481739}
+  - {x: 34.428154, y: -14.646401}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -12204,7 +12206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928482049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.3, y: 206.7, z: 0}
+  m_LocalPosition: {x: 59.41, y: 206.92, z: 0}
   m_LocalScale: {x: 0.4649, y: 0.4649, z: 0.4649}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18701,8 +18703,8 @@ Canvas:
   m_GameObject: {fileID: 2097385491}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
