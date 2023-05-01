@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     float vertical_value;
     Vector2 ref_velocity = Vector2.zero;
     Vector2 target_velocity;
-    float jumpForce = 20f;
+    float jumpForce = 18f;
     [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 400.0f;
     [SerializeField] float sprintSpeed_horizontal = 600.0f;
@@ -149,8 +149,8 @@ public class Player : MonoBehaviour
         if (is_crouching && grounded)
         {
             moveSpeed_horizontal = 200f;
-            cap.offset = new Vector2(0.1f, -0.6f);
-            cap.size = new Vector2(1.1f, 0.8f);
+            cap.offset = new Vector2(22.30882f, -22.64283f);
+            cap.size = new Vector2(57.15683f, 15.88799f);
             cap.direction = CapsuleDirection2D.Horizontal;
             animController.SetBool("Crouching", true);
         }
@@ -158,8 +158,8 @@ public class Player : MonoBehaviour
         {
             is_crouching = false;
             moveSpeed_horizontal = 400f;
-            cap.offset = new Vector2(0f, -0.35f);
-            cap.size = new Vector2(1f, 1.3f);
+            cap.offset = new Vector2(0.3032157f, -0.1786781f);
+            cap.size = new Vector2(13.14533f, 59.856f);
             cap.direction = CapsuleDirection2D.Vertical;
             animController.SetBool("Crouching", false);
         }
