@@ -34,7 +34,7 @@ public class IAennemy : MonoBehaviour
         }
         if (Init)
         {
-            transform.Translate((Player.transform.position - transform.position)* 2.5f * Time.deltaTime, Space.World);
+            transform.Translate((Player.transform.position - transform.position)* 1.5f * Time.deltaTime, Space.World);
         }
     }
 
