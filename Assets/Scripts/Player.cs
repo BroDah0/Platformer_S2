@@ -229,6 +229,6 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        animController.SetBool("Jumping", false);    
+        animController.SetBool("Jumping", false);
     }
 }

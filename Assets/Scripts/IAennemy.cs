@@ -17,8 +17,12 @@ public class IAennemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         Invoke("Waiting", 1.5f);
+    }
+
+    private void Awake()
+    {
+        Player = GameObject.Find("Player"); 
     }
 
     // Update is called once per frame
@@ -28,13 +32,12 @@ public class IAennemy : MonoBehaviour
         flipPlayer.Enqueue(Player.GetComponent<SpriteRenderer>().flipX);
         if (canFollow)
         {
-            
             transform.position = posPlayer.Dequeue();
             GetComponent<SpriteRenderer>().flipX = flipPlayer.Dequeue();
         }
         if (Init)
         {
-            transform.Translate((Player.transform.position - transform.position)* 1.5f * Time.deltaTime, Space.World);
+            transform.Translate((Player.transform.position - transform.position)* 3f * Time.deltaTime, Space.World);
         }
     }
 
@@ -42,6 +45,5 @@ public class IAennemy : MonoBehaviour
     {
         Init = false;
         canFollow = true;
-
     }
 }
