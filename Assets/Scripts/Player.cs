@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
     Vector2 target_velocity;
     float jumpForce = 18f;
     [SerializeField] TrailRenderer tr;
-    [SerializeField] float moveSpeed_horizontal = 400.0f;
-    [SerializeField] float sprintSpeed_horizontal = 600.0f;
+    [SerializeField] float moveSpeed_horizontal = 650.0f;
+    [SerializeField] float sprintSpeed_horizontal = 850.0f;
     [SerializeField] bool is_jumping = false;
     [SerializeField] bool grounded = false;
     [SerializeField] bool is_crouching = false;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private bool is_sliding;
     private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
-    float Climb_speed = 150.0f;
+    float Climb_speed = 200.0f;
     public bool isLadder = false;
     public bool canClimb = false;
     bool CheckSphere;
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         else if(CheckSphere == false)
         {
             is_crouching = false;
-            moveSpeed_horizontal = 400f;
+            moveSpeed_horizontal = 650f;
             cap.offset = new Vector2(0.3032157f, -0.1786781f);
             cap.size = new Vector2(13.14533f, 59.856f);
             cap.direction = CapsuleDirection2D.Vertical;
