@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
         {
             is_crouching = false;
             moveSpeed_horizontal = 650f;
-            cap.offset = new Vector2(0.3032157f, -0.1786781f);
+            cap.offset = new Vector2( 0f, 0f);
             cap.size = new Vector2(13.14533f, 59.856f);
             cap.direction = CapsuleDirection2D.Vertical;
             animController.SetBool("Crouching", false);
