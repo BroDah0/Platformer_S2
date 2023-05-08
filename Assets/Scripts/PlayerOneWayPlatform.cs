@@ -17,7 +17,7 @@ public class PlayerOneWayPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (currentOneWayPlatform == null)
             {
@@ -43,7 +43,7 @@ public class PlayerOneWayPlatform : MonoBehaviour
         }
     }
 
-    private IEnumerable DisableCollision()
+    private IEnumerator DisableCollision()
     {
         BoxCollider2D platformCollider = currentOneWayPlatform.GetComponent<BoxCollider2D>();
 
