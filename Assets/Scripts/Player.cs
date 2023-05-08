@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
             cap.offset = new Vector2(22.30882f, -22.64283f);
             cap.size = new Vector2(57.15683f, 15.88799f);
             cap.direction = CapsuleDirection2D.Horizontal;
+            animController.SetBool("Sliding", true);
             tre.emitting = true;
             rb.gravityScale = 50f;
             slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
