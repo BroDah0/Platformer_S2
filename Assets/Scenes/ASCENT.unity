@@ -3776,7 +3776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.539997, y: 212.2, z: -229.47395}
+  m_LocalPosition: {x: 32.159996, y: 212.2, z: -229.47395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5196,6 +5196,7 @@ MonoBehaviour:
   slidingVelocity: 25
   slidingTime: 0.3
   cooldownSprint: 0
+  is_sliding: 0
   smooth_time: 0.5
   isLadder: 0
   canClimb: 0
@@ -7306,7 +7307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952094087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.28, y: 211.94191, z: -224.4829}
+  m_LocalPosition: {x: 31.9, y: 211.94191, z: -224.4829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10157,6 +10158,7 @@ MonoBehaviour:
   slidingVelocity: 25
   slidingTime: 0.3
   cooldownSprint: 0
+  is_sliding: 0
   smooth_time: 0.5
   isLadder: 0
   canClimb: 0
@@ -10169,7 +10171,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1316463920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10185,11 +10187,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1316463920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9629543, y: 0.26607853}
+  m_Offset: {x: 1.5862496, y: 0.26607853}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10200,7 +10202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.633373, y: 1.180776}
+  m_Size: {x: 2.4341059, y: 1.180776}
   m_EdgeRadius: 0
 --- !u!50 &1316463937
 Rigidbody2D:
@@ -10218,7 +10220,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -10597,7 +10599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358194834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.539997, y: 212.2, z: -229.47395}
+  m_LocalPosition: {x: 32.159996, y: 212.2, z: -229.47395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

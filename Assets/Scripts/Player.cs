@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float slidingTime = 0.3f;
     [SerializeField] private bool cooldownSprint = false;
     private Vector2 slidingDir;
-    private bool is_sliding;
+    [SerializeField] private bool is_sliding;
     private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
     float Climb_speed = 200.0f;
@@ -181,6 +181,7 @@ public class Player : MonoBehaviour
     IEnumerator stopSliding()
     {
         yield return new WaitForSeconds(slidingTime);
+        animController.SetBool("Sliding", false);
         tre.emitting = false;
         rb.gravityScale = 4;
         cap.offset = new Vector2(0.3032157f, 30.07f);
@@ -188,6 +189,7 @@ public class Player : MonoBehaviour
         cap.direction = CapsuleDirection2D.Vertical;
         is_sliding = false;
         yield return new WaitForSeconds(3f);
+        
         canSlide = true;
 
     }   
