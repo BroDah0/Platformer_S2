@@ -97,8 +97,8 @@ public class Player : MonoBehaviour
         {
             is_sliding = true;
             canSlide = false;
-            cap.offset = new Vector2(22.30882f, -22.64283f);
-            cap.size = new Vector2(57.15683f, 15.88799f);
+            cap.offset = new Vector2(0.3032135f, 5.344806f);
+            cap.size = new Vector2(59.85606f, 10.40589f);
             cap.direction = CapsuleDirection2D.Horizontal;
             animController.SetBool("Sliding", true);
             tre.emitting = true;
@@ -150,8 +150,8 @@ public class Player : MonoBehaviour
         if (is_crouching && grounded)
         {
             moveSpeed_horizontal = 200f;
-            cap.offset = new Vector2(22.30882f, -22.64283f);
-            cap.size = new Vector2(57.15683f, 15.88799f);
+            cap.offset = new Vector2(0.3032135f, 5.344806f);
+            cap.size = new Vector2(59.85606f, 10.40589f);
             cap.direction = CapsuleDirection2D.Horizontal;
             animController.SetBool("Crouching", true);
         }
