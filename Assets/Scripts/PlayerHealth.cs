@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
+    public float coordonnee;
 
     public HealthBar healthBar;
 

@@ -64,25 +64,25 @@ public class Player : MonoBehaviour
 
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
 
-        // Sprint
+        // Jump
         if (Input.GetButtonDown("Jump") && grounded && !is_crouching)
         {
             is_jumping = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        // Sprint
+        if (Input.GetButton("Sprint") && grounded && !is_crouching)
         {
             if (cooldownSprint == false)
             {
                 is_sprinting = true;
                 StartCoroutine(Sprint());
-
             }
             
         }
 
         // Crouch
-        if (Input.GetButton("Crouch"))
+        if (Input.GetButton("Crouch") && grounded)
         {
             is_crouching = true;
             is_sliding = false;
