@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 public class IAennemy : MonoBehaviour
 {
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject Ennemy;
     Animator AnimController;
     Queue<Vector3> posPlayer = new Queue<Vector3>();
     Queue<bool> flipPlayer = new Queue<bool>();
@@ -22,7 +23,7 @@ public class IAennemy : MonoBehaviour
 
     private void Awake()
     {
-        Player = GameObject.Find("Player"); 
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame

@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool is_crouching = false;
     [SerializeField] bool is_sprinting = false;
     [SerializeField] private float slidingVelocity;
-    [SerializeField] private float slidingTime = 0.3f;
+    [SerializeField] private float slidingTime = 0.4f;
     [SerializeField] private bool cooldownSprint = false;
     private Vector2 slidingDir;
     [SerializeField] private bool is_sliding;
