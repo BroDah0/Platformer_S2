@@ -15,23 +15,22 @@ Mécaniques implémentées :
 
 
 	A faire :
-IMPORTANT	-	Mettre Alex dans le jeu
--	Rigger et animer Alex (course et slide, crouch et climb, saut)
--	Blockout ville, salle et grotte
--	Mettre Astaroth dans le jeu
+IMPORTANT	
+-	Rigger et animer Alex (reste plus que le climb)
+-	Blockout salle du trone et grotte 
 -	Dessiner les ennemies
--	Ajouter l’Art a la place du blockout
--	Parallaxe 
-CODE	-	Coder l’IA pour avoir une zone d’activation et de désactivation
--	Ajouter les cooldowns du sprint et du slide dans l’ATH
+-	Faire et ajouter l'art de la salle du trone et de la grotte
+-	Parallaxe
+CODE	
+-	perfectionner l'ia
+-	Ajouter les cooldowns du sprint et du slide dans l’ATH et le chronomètre
 -	Coder Astaroth et les boules de feu
 -	Coder la fin de la grotte
 -	Coder des points de respawn
 
-POLISH	-	Mettre l’adaptabilité manette
+POLISH	
 -	Coder et faire le menu du jeu
--	Mettre du texte aide
--	Ajouter le chronomètre dans l’ATH
+-	Mettre du texte aide touche
 
 
 
