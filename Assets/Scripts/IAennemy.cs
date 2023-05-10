@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Pathfinding;
 
 public class IAennemy : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class IAennemy : MonoBehaviour
 
     private void Awake()
     {
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("ALEX");
     }
 
     // Update is called once per frame
@@ -42,9 +43,10 @@ public class IAennemy : MonoBehaviour
         }
     }
 
-    void Waiting()
+   void Waiting()
     {
         Init = false;
         canFollow = true;
+        Debug.Log("je peux suivre");
     }
 }

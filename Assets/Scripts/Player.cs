@@ -188,7 +188,7 @@ public class Player : MonoBehaviour
         cap.size = new Vector2(13.14533f, 59.856f);
         cap.direction = CapsuleDirection2D.Vertical;
         is_sliding = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(8f);
         
         canSlide = true;
 
@@ -202,7 +202,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         is_sprinting = false;
         cooldownSprint = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
         cooldownSprint = false;
     }
 
