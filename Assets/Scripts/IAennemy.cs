@@ -10,8 +10,7 @@ using Pathfinding;
 public class IAennemy : MonoBehaviour
 {
     [SerializeField] GameObject Player;
-    [SerializeField] GameObject Ennemy;
-    Animator AnimController;
+    Animator animController;
     Queue<Vector3> posPlayer = new Queue<Vector3>();
     Queue<bool> flipPlayer = new Queue<bool>();
     bool canFollow = false;
@@ -47,6 +46,5 @@ public class IAennemy : MonoBehaviour
     {
         Init = false;
         canFollow = true;
-        Debug.Log("je peux suivre");
     }
 }
