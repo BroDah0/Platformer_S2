@@ -18,7 +18,7 @@ public class IAennemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Waiting", 1.5f);
+        Invoke("Waiting", 0.6f);
     }
 
     private void Awake()
@@ -29,8 +29,10 @@ public class IAennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Player.gameObject.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
         posPlayer.Enqueue(Player.transform.position);
         flipPlayer.Enqueue(Player.GetComponent<SpriteRenderer>().flipX);
+        
         if (canFollow)
         {
             transform.position = posPlayer.Dequeue();
@@ -38,7 +40,7 @@ public class IAennemy : MonoBehaviour
         }
         if (Init)
         {
-            transform.Translate((Player.transform.position - transform.position)* 3f * Time.deltaTime, Space.World);
+            transform.Translate((Player.transform.position - transform.position)* 2f * Time.deltaTime, Space.World);
         }
     }
 
@@ -46,5 +48,13 @@ public class IAennemy : MonoBehaviour
     {
         Init = false;
         canFollow = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "ZoneCameraProche")
+        {
+            Destroy(gameObject);
+        }
     }
 }

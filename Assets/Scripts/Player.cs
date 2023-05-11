@@ -145,8 +145,8 @@ public class Player : MonoBehaviour
         }
 
         // Crouch
-        aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
-        CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
+        //aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
+        //CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
         if (is_crouching && grounded)
         {
             moveSpeed_horizontal = 200f;
@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
             cap.direction = CapsuleDirection2D.Horizontal;
             animController.SetBool("Crouching", true);
         }
-        else if(CheckSphere == false)
+        else
         {
             is_crouching = false;
             moveSpeed_horizontal = 650f;
@@ -209,8 +209,12 @@ public class Player : MonoBehaviour
     //Climbing
     private void OnTriggerStay2D(Collider2D collision)
     {
-        grounded = true;
-        animController.SetBool("Jumping", false);
+        if (collision.gameObject.layer == 6)
+        {
+            grounded = true;
+            UnityEngine.Debug.Log(grounded, collision.gameObject);
+            animController.SetBool("Jumping", false);
+        }
 
         if (collision.gameObject.CompareTag("Ladder"))
         {
@@ -218,7 +222,7 @@ public class Player : MonoBehaviour
             grounded = false;
         }       
     }
-    
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))

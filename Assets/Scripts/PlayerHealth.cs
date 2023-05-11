@@ -45,11 +45,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Ennemy")
-        {
-            transform.position = respawnPoint;
-        }
-        else if (collision.tag == "Checkpoint")
+        if (collision.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
         }

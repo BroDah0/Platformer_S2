@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 32919553}
   - component: {fileID: 32919552}
   - component: {fileID: 32919554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sol mieux@3x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,6 +805,7 @@ GameObject:
   - component: {fileID: 98726945}
   - component: {fileID: 98726944}
   - component: {fileID: 98726943}
+  - component: {fileID: 98726946}
   m_Layer: 0
   m_Name: ZoneCameraProche
   m_TagString: Untagged
@@ -869,6 +870,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98726946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98726942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29970a8d431a8f34fbb9eeb758ae86b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debut: 0
+  trone: 0
+  proche: 1
+  animator: {fileID: 387284890}
 --- !u!1 &112402892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1092,7 @@ GameObject:
   - component: {fileID: 143356244}
   - component: {fileID: 143356243}
   - component: {fileID: 143356242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1296,7 @@ GameObject:
   - component: {fileID: 165183934}
   - component: {fileID: 165183933}
   - component: {fileID: 165183939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1642,7 +1659,7 @@ GameObject:
   - component: {fileID: 180346138}
   - component: {fileID: 180346137}
   - component: {fileID: 180346136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rocher 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1752,7 +1769,7 @@ GameObject:
   - component: {fileID: 182829732}
   - component: {fileID: 182829731}
   - component: {fileID: 182829730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2405,7 @@ GameObject:
   - component: {fileID: 290964761}
   - component: {fileID: 290964760}
   - component: {fileID: 290964759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3081,7 +3098,7 @@ GameObject:
   - component: {fileID: 388872682}
   - component: {fileID: 388872681}
   - component: {fileID: 388872687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3297,7 @@ GameObject:
   - component: {fileID: 401530003}
   - component: {fileID: 401530002}
   - component: {fileID: 401530008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3658,7 +3675,7 @@ GameObject:
   - component: {fileID: 434290593}
   - component: {fileID: 434290592}
   - component: {fileID: 434290591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4673,7 +4690,7 @@ GameObject:
   - component: {fileID: 591761565}
   - component: {fileID: 591761564}
   - component: {fileID: 591761563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5610,7 +5627,7 @@ GameObject:
   - component: {fileID: 700751668}
   - component: {fileID: 700751667}
   - component: {fileID: 700751666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5811,7 +5828,7 @@ GameObject:
   - component: {fileID: 725635790}
   - component: {fileID: 725635789}
   - component: {fileID: 725635788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6777,7 +6794,7 @@ GameObject:
   - component: {fileID: 831393598}
   - component: {fileID: 831393597}
   - component: {fileID: 831393600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7348,7 +7365,7 @@ GameObject:
   - component: {fileID: 924969793}
   - component: {fileID: 924969792}
   - component: {fileID: 924969797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7578,7 +7595,7 @@ GameObject:
   - component: {fileID: 979023072}
   - component: {fileID: 979023071}
   - component: {fileID: 979023076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7945,7 +7962,7 @@ GameObject:
   - component: {fileID: 1015689618}
   - component: {fileID: 1015689617}
   - component: {fileID: 1015689616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9089,7 +9106,7 @@ GameObject:
   - component: {fileID: 1192153587}
   - component: {fileID: 1192153586}
   - component: {fileID: 1192153592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9460,7 +9477,7 @@ GameObject:
   - component: {fileID: 1207695527}
   - component: {fileID: 1207695526}
   - component: {fileID: 1207695525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9661,7 +9678,7 @@ GameObject:
   - component: {fileID: 1229121866}
   - component: {fileID: 1229121865}
   - component: {fileID: 1229121868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9684,9 +9701,9 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.0498176, y: 3.847263}
-  - {x: -3.7371027, y: 4.1068773}
-  - {x: 2.749507, y: 4.5021544}
+  - {x: -2.616102, y: 4.5232034}
+  - {x: 1.1026113, y: 4.323177}
+  - {x: 5.966992, y: 3.8532557}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -10918,7 +10935,7 @@ GameObject:
   - component: {fileID: 1320975522}
   - component: {fileID: 1320975521}
   - component: {fileID: 1320975526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12302,7 +12319,7 @@ GameObject:
   - component: {fileID: 1561940965}
   - component: {fileID: 1561940964}
   - component: {fileID: 1561940967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1
   m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
@@ -12429,7 +12446,7 @@ GameObject:
   - component: {fileID: 1573956672}
   - component: {fileID: 1573956671}
   - component: {fileID: 1573956670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison 3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12879,7 +12896,7 @@ GameObject:
   - component: {fileID: 1636313949}
   - component: {fileID: 1636313948}
   - component: {fileID: 1636313947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13259,7 +13276,7 @@ GameObject:
   - component: {fileID: 1719096902}
   - component: {fileID: 1719096901}
   - component: {fileID: 1719096903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13544,7 +13561,7 @@ GameObject:
   - component: {fileID: 1795495552}
   - component: {fileID: 1795495551}
   - component: {fileID: 1795495554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13756,7 +13773,7 @@ GameObject:
   - component: {fileID: 1825535124}
   - component: {fileID: 1825535123}
   - component: {fileID: 1825535126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14062,6 +14079,7 @@ GameObject:
   - component: {fileID: 1856630270}
   - component: {fileID: 1856630269}
   - component: {fileID: 1856630268}
+  - component: {fileID: 1856630271}
   m_Layer: 0
   m_Name: ZoneCameraTrone
   m_TagString: Untagged
@@ -14126,6 +14144,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1856630271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856630267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29970a8d431a8f34fbb9eeb758ae86b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debut: 0
+  trone: 1
+  proche: 0
+  animator: {fileID: 387284890}
 --- !u!1 &1895099969
 GameObject:
   m_ObjectHideFlags: 0
@@ -14305,7 +14339,7 @@ GameObject:
   - component: {fileID: 1928482052}
   - component: {fileID: 1928482051}
   - component: {fileID: 1928482050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14786,7 +14820,7 @@ GameObject:
   - component: {fileID: 2006505653}
   - component: {fileID: 2006505652}
   - component: {fileID: 2006505655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15371,7 +15405,7 @@ GameObject:
   - component: {fileID: 2063686916}
   - component: {fileID: 2063686915}
   - component: {fileID: 2063686914}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: maison2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15641,7 +15675,7 @@ GameObject:
   - component: {fileID: 2068281744}
   - component: {fileID: 2068281743}
   - component: {fileID: 2068281746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arbre 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16210,7 +16244,7 @@ GameObject:
   - component: {fileID: 2141145346}
   - component: {fileID: 2141145345}
   - component: {fileID: 2141145344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rocher 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
