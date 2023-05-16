@@ -93,24 +93,9 @@ public class Player : MonoBehaviour
         }
 
         // Slide
-        if (Input.GetButtonDown("Slide") && canSlide && !is_crouching)
+        if (Input.GetButtonDown("Slide") && grounded && canSlide && !is_crouching && rb.velocity != Vector2.zero)
         {
-            is_sliding = true;
-            canSlide = false;
-            cap.offset = new Vector2(0.3032135f, 5.344806f);
-            cap.size = new Vector2(59.85606f, 10.40589f);
-            cap.direction = CapsuleDirection2D.Horizontal;
-            animController.SetBool("Sliding", true);
-            tre.emitting = true;
-            rb.gravityScale = 50f;
-            slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-            if (slidingDir == Vector2.zero)
-            {
-                slidingDir = new Vector2(transform.localScale.x, 0);
-            }
-            StartCoroutine(stopSliding());
-
-           
+            StartCoroutine(Sliding());          
         }
 
         if (is_sliding)
@@ -147,7 +132,7 @@ public class Player : MonoBehaviour
         // Crouch
         //aidepose = new Vector2(aide.transform.position.x, aide.transform.position.y);
         //CheckSphere = Physics2D.OverlapCircle(aidepose, 0.1f);
-        if (is_crouching && grounded)
+        if (is_crouching && grounded && !is_sliding)
         {
             moveSpeed_horizontal = 200f;
             cap.offset = new Vector2(0.3032135f, 5.344806f);
@@ -155,8 +140,9 @@ public class Player : MonoBehaviour
             cap.direction = CapsuleDirection2D.Horizontal;
             animController.SetBool("Crouching", true);
         }
-        else
+        else if (!is_crouching && !is_sliding)
         {
+            UnityEngine.Debug.Log("nan");
             is_crouching = false;
             moveSpeed_horizontal = 650f;
             cap.offset = new Vector2(0.3032157f, 30.07f);
@@ -177,22 +163,32 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
     }
    
-    // Slide coroutine
-    IEnumerator stopSliding()
+    // Slide coroutine 
+    IEnumerator Sliding()
     {
+        is_sliding = true;
+        is_crouching = true;
+        canSlide = false;
+        cap.offset = new Vector2(0.3032135f, 5.344806f);
+        cap.size = new Vector2(59.85606f, 10.40589f);
+        cap.direction = CapsuleDirection2D.Horizontal;
+        animController.SetBool("Sliding", true);
+        tre.emitting = true;
+        rb.gravityScale = 50f;
+        slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         yield return new WaitForSeconds(slidingTime);
+        if (slidingDir == Vector2.zero)
+        {
+            slidingDir = new Vector2(transform.localScale.x, 0);
+        }
         animController.SetBool("Sliding", false);
         tre.emitting = false;
         rb.gravityScale = 4;
-        cap.offset = new Vector2(0.3032157f, 30.07f);
-        cap.size = new Vector2(13.14533f, 59.856f);
-        cap.direction = CapsuleDirection2D.Vertical;
         is_sliding = false;
+        is_crouching = false;
         yield return new WaitForSeconds(8f);
-        
         canSlide = true;
-
-    }   
+    }
 
     // Sprint coroutine
     IEnumerator Sprint()
