@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool is_sliding;
     private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
-    float Climb_speed = 200.0f;
+    float Climb_speed = 350.0f;
     public bool isLadder = false;
     public bool canClimb = false;
     bool CheckSphere;
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         }
 
         // Slide
-        if (Input.GetButtonDown("Slide") && grounded && canSlide && !is_crouching && rb.velocity != Vector2.zero)
+        if (Input.GetButtonDown("Slide") && grounded && canSlide && !is_crouching && horizontal_value != 0)
         {
             StartCoroutine(Sliding());          
         }
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         {
             rb.gravityScale = 0f;
             grounded = false;
-            target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, vertical_value * Climb_speed * Time.deltaTime);
+            target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * 0.5f * Time.deltaTime, vertical_value * Climb_speed * Time.deltaTime);
             animController.SetBool("Climbing", true);
         }
         
