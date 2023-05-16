@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
                 is_sprinting = true;
                 StartCoroutine(Sprint());
             }
-            
         }
 
         // Crouch

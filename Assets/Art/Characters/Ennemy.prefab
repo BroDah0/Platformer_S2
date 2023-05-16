@@ -984,14 +984,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1693695306141474366}
   - component: {fileID: 1693695306141474359}
-  - component: {fileID: 1693695306141474357}
   - component: {fileID: 1693695306141474358}
+  - component: {fileID: 1693695306141474357}
   - component: {fileID: 1693695306141474363}
   - component: {fileID: 1693695306141474356}
   - component: {fileID: 1693695306141474362}
   - component: {fileID: 1693695306141474360}
   - component: {fileID: 1693695306141474361}
-  - component: {fileID: 9088084156517028448}
   - component: {fileID: -7274351615468670937}
   - component: {fileID: 8869018528770667320}
   - component: {fileID: -6320706996643218304}
@@ -1042,14 +1041,30 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &1693695306141474358
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693695306141474341}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.30321568, y: 30.07}
+  m_Size: {x: 13.1453285, y: 59.856}
+  m_Direction: 0
 --- !u!61 &1693695306141474357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1059,7 +1074,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1693695306141474341}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a4549fa55f9e8984b8e5f60419e74e46, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1076,22 +1091,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4341059, y: 1.180776}
   m_EdgeRadius: 0
---- !u!70 &1693695306141474358
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693695306141474341}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.30321568, y: 30.07}
-  m_Size: {x: 13.1453285, y: 59.856}
-  m_Direction: 0
 --- !u!212 &1693695306141474363
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1132,7 +1131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6c461bb677c62fe4780b65ecca362052, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1292,7 +1291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693695306141474341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
   m_Name: 
@@ -1312,34 +1311,6 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
---- !u!114 &9088084156517028448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693695306141474341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!114 &-7274351615468670937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: -8653719598885068355, guid: 3c5aed270f2416a40b73f577d7de79ce, type: 3}
+  StartPos: {x: 0, y: 0}
 --- !u!82 &-6320706996643218304
 AudioSource:
   m_ObjectHideFlags: 0

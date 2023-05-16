@@ -15,14 +15,19 @@ public class IAennemy : MonoBehaviour
     Queue<bool> flipPlayer = new Queue<bool>();
     bool canFollow = false;
     bool Init = true;
+
+    public Vector2 StartPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartPos = transform.position;
         Invoke("Waiting", 0.6f);
     }
 
     private void Awake()
     {
+
         Player = GameObject.Find("ALEX");
     }
 
@@ -31,12 +36,12 @@ public class IAennemy : MonoBehaviour
     {
         //if (Player.gameObject.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
         posPlayer.Enqueue(Player.transform.position);
-        flipPlayer.Enqueue(Player.GetComponent<SpriteRenderer>().flipX);
+        //flipPlayer.Enqueue(Player.transform.localScale.);
         
         if (canFollow)
         {
             transform.position = posPlayer.Dequeue();
-            GetComponent<SpriteRenderer>().flipX = flipPlayer.Dequeue();
+            //GetComponent<SpriteRenderer>().flipX = flipPlayer.Dequeue();
         }
         if (Init)
         {
