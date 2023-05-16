@@ -17,9 +17,11 @@ Mécaniques implémentées :
 	A faire :
 IMPORTANT	
 -	Rigger et animer Alex (reste plus que le climb)
--	Blockout salle du trone et grotte 
+-       Rigger et animer Astaroth (marche et lancer)
+-	Blockout grotte 
 -	Dessiner les ennemies
 -	Faire et ajouter l'art de la salle du trone et de la grotte
+-       Lighting grotte
 -	Parallaxe
 CODE	
 -	perfectionner l'ia
@@ -31,6 +33,7 @@ CODE
 POLISH	
 -	Coder et faire le menu du jeu
 -	Mettre du texte aide touche
+-       crédit avec musique 
 
 
 
