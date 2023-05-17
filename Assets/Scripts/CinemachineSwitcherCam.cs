@@ -9,8 +9,8 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] bool trone;
     [SerializeField] bool proche;
     [SerializeField] Animator animator;
-    public Light pointlight;
-    LightFollowPlayer Light;
+    public Light spotlight;
+    public Light globalLight;
 
     private void Start()
     {
@@ -36,7 +36,8 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (proche)
             {
                 animator.SetBool("Proche", true);
-                Light light = Instantiate(pointlight, transform.position, transform.rotation);
+                Light light = Instantiate(spotlight, transform.position, transform.rotation);
+                Light light2 = Instantiate(globalLight, transform.position, transform.rotation);
             }
                
         }
@@ -57,6 +58,8 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (proche)
             {
                 animator.SetBool("Proche", false);
+                GameObject.Destroy(spotlight);
+                GameObject.Destroy(globalLight);
             }
         }
     }
