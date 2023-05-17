@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBar;
     public EnnemyManager EnnemyManager;
+    public TakeDamage damage;
+
+    private bool hitted = false;
+    [SerializeField] float timerHit;
+    [SerializeField] float timeBeforeHit = 3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +31,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0)
+        if (hitted)
         {
-            Debug.Log("c'est tipar");
-            //ResetEnnemyPos();
-            transform.position = respawnPoint;
-            SceneManager.LoadScene("ASCENT");
+            if (timerHit < timeBeforeHit) timerHit += Time.deltaTime;
+            if (timerHit > timeBeforeHit) timerHit = timeBeforeHit;
+            if (timerHit == timeBeforeHit)
+            {
+                timerHit = 0;
+                hitted = false;
+            }
         }
         // test pour voir si ca fonctionne
         if (Input.GetKeyDown(KeyCode.H))
@@ -37,22 +47,31 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(1);
             Debug.Log("-1 health point");
         }
+
+        if(currentHealth < 0) currentHealth = 0;
+        if (currentHealth == 0)
+        {
+            //Debug.Log("c'est tipar");
+            //ResetEnnemyPos();
+            Debug.Log(transform.position);
+            Debug.Log(respawnPoint);
+            transform.position = respawnPoint;
+            //currentHealth = 3;
+            //healthBar.SetHealth(currentHealth);
+        }
+
+        if(damage.hitted)
+        {
+            TakeDamage(1);
+        }
     }
 
 
     public void TakeDamage (int damage)
     {
         Debug.Log(damage);
-        currentHealth -= damage;  // si on prends des degats ont retire de la vie a la vie actuelle
+        currentHealth = currentHealth - damage;  // si on prends des degats ont retire de la vie a la vie actuelle
         healthBar.SetHealth(currentHealth); // pour mettre a jour le visuel de la barre de vie
-        if (currentHealth <= 0)
-        {
-            Debug.Log("c'est tipar");
-            //ResetEnnemyPos();
-            Debug.Log(transform.position);
-            Debug.Log(respawnPoint);
-            transform.position = respawnPoint;
-        }
         Debug.Log(currentHealth);
     }
 
@@ -68,9 +87,22 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Checkpoint")
+        if (collision.CompareTag("Checkpoint"))
         {
             respawnPoint = transform.position;
+            Debug.Log("checkpoint");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ennemy"))
+        {
+            if (!hitted)
+            {
+                TakeDamage(1);
+                hitted = true;
+            }
         }
     }
 }

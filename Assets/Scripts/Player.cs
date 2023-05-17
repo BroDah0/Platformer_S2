@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     Animator animController;
     TrailRenderer tre;
+    SprintBar sprint_bar;
+    SlideBar slide_bar;
     [SerializeField] GameObject aide;
 
     //Variables
@@ -47,7 +49,8 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animController = GetComponent<Animator>();
         tre = GetComponent<TrailRenderer>();
-        
+        sprint_bar = GetComponent<SprintBar>();
+        slide_bar = GetComponent<SlideBar>();
     }
 
  
@@ -185,6 +188,7 @@ public class Player : MonoBehaviour
         rb.gravityScale = 4;
         is_sliding = false;
         is_crouching = false;
+        StartCoroutine(slide_bar.SlideCooldown());
         yield return new WaitForSeconds(8f);
         canSlide = true;
     }
@@ -197,6 +201,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         is_sprinting = false;
         cooldownSprint = true;
+        StartCoroutine(sprint_bar.SprintCooldown());
         yield return new WaitForSeconds(10f);
         cooldownSprint = false;
     }
@@ -207,7 +212,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             grounded = true;
-            UnityEngine.Debug.Log(grounded, collision.gameObject);
             animController.SetBool("Jumping", false);
         }
 

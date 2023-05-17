@@ -7,14 +7,14 @@ public class TakeDamage : MonoBehaviour
     [SerializeField] PlayerHealth PlayerHealth;
     [SerializeField] float timerHit;
     [SerializeField] float timeBeforeHit = 3;
-    [SerializeField] bool hitted = false;
-    // Start is called before the first frame update
+    public bool hitted = false;
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (hitted)
@@ -29,17 +29,15 @@ public class TakeDamage : MonoBehaviour
         }
     }
 
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ennemy"))
         {
             if (!hitted)
             {
-                PlayerHealth.TakeDamage(1);
+                //PlayerHealth.TakeDamage(1);
                 hitted = true;
             }
-
         }
     }
 

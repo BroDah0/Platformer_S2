@@ -12,4 +12,13 @@ public class SprintBar : MonoBehaviour
     {
         slider.value = sprint;
     }
+
+    public IEnumerator SprintCooldown()
+    {
+        for (int i = 0; i <= 10; i++)
+        {
+            SetSprint(i);
+            yield return new WaitForSeconds(1);
+        }
+    }
 }
