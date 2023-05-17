@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool is_sliding;
     private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
-    float Climb_speed = 350.0f;
+    float Climb_speed = 390.0f;
     public bool isLadder = false;
     public bool canClimb = false;
     bool CheckSphere;
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         {
             if (cooldownSprint == false)
             {
-                if(!is_sprinting) StartCoroutine(Sprint());
+                StartCoroutine(Sprint());
                 is_sprinting = true;
                 
             }
@@ -98,8 +98,8 @@ public class Player : MonoBehaviour
         // Slide
         if (Input.GetButtonDown("Slide") && grounded && canSlide && !is_crouching && horizontal_value != 0)
         {
-            if(is_sliding) StartCoroutine(Sliding());
-            is_sliding = true;
+            StartCoroutine(Sliding());
+            
         }
 
         if (is_sliding)
@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     // Slide coroutine 
     IEnumerator Sliding()
     {
-        
+        is_sliding = true;
         is_crouching = true;
         canSlide = false;
         cap.offset = new Vector2(0.3032135f, 5.344806f);
@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
         cap.direction = CapsuleDirection2D.Horizontal;
         animController.SetBool("Sliding", true);
         tre.emitting = true;
-        rb.gravityScale = 50f;
+        rb.gravityScale = 45f;
         slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         yield return new WaitForSeconds(slidingTime);
         if (slidingDir == Vector2.zero)
@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
         }
         animController.SetBool("Sliding", false);
         tre.emitting = false;
-        rb.gravityScale = 4;
+        rb.gravityScale = 5.5f;
         is_sliding = false;
         is_crouching = false;
         StartCoroutine(slide_bar.SlideCooldown());
