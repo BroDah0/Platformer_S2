@@ -13,7 +13,7 @@ public class LightFollowPlayer : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         gameObject.transform.SetParent(player.transform);
-        pointlight = GetComponent<PointLight>();
+        //pointlight = GetComponent<PointLight>();
 
     }
 
