@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class CinemachineSwitcherCam : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] bool trone;
     [SerializeField] bool proche;
     [SerializeField] Animator animator;
+    public Light pointlight;
+    LightFollowPlayer Light;
 
+    private void Start()
+    {
+
+    }
     private void Update()
     {
-        
+   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +36,9 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (proche)
             {
                 animator.SetBool("Proche", true);
+                Light light = Instantiate(pointlight, transform.position, transform.rotation);
             }
+               
         }
         
     }

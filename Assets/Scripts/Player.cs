@@ -196,12 +196,12 @@ public class Player : MonoBehaviour
     // Sprint coroutine
     IEnumerator Sprint()
     {
+        StartCoroutine(sprint_bar.SprintCooldown());
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         yield return new WaitForSeconds(1.5f);
         is_sprinting = false;
         cooldownSprint = true;
-        StartCoroutine(sprint_bar.SprintCooldown());
         yield return new WaitForSeconds(10f);
         cooldownSprint = false;
     }

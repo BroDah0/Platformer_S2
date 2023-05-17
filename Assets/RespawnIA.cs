@@ -6,7 +6,7 @@ public class RespawnIA : MonoBehaviour
 {
     public Transform respawnPoint;
 
-    [SerializeField] PlayerHealth playerh;
+    [SerializeField] PlayerHealth playerhealth;
     
     void Start()
     {
