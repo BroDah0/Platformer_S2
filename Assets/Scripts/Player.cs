@@ -78,8 +78,9 @@ public class Player : MonoBehaviour
         {
             if (cooldownSprint == false)
             {
+                if(!is_sprinting) StartCoroutine(Sprint());
                 is_sprinting = true;
-                StartCoroutine(Sprint());
+                
             }
         }
 
@@ -97,7 +98,8 @@ public class Player : MonoBehaviour
         // Slide
         if (Input.GetButtonDown("Slide") && grounded && canSlide && !is_crouching && horizontal_value != 0)
         {
-            StartCoroutine(Sliding());          
+            if(is_sliding) StartCoroutine(Sliding());
+            is_sliding = true;
         }
 
         if (is_sliding)
@@ -168,7 +170,7 @@ public class Player : MonoBehaviour
     // Slide coroutine 
     IEnumerator Sliding()
     {
-        is_sliding = true;
+        
         is_crouching = true;
         canSlide = false;
         cap.offset = new Vector2(0.3032135f, 5.344806f);
