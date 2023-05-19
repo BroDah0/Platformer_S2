@@ -12,11 +12,12 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBar;
     public EnnemyManager EnnemyManager;
-    public TakeDamage damage;
+    private TakeDamage damage;
+    IAennemy ennemy;
 
-    private bool hitted = false;
+    public bool hitted = false;
     [SerializeField] float timerHit;
-    [SerializeField] float timeBeforeHit = 3;
+    [SerializeField] float timeBeforeHit = 3f;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         respawnPoint= transform.position;
+        ennemy = GetComponent<IAennemy>();
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("-1 health point");
         }
 
-        if(currentHealth < 0) currentHealth = 0;
+        //if(currentHealth < 0) currentHealth = 0;
         if (currentHealth == 0)
         {
             //Debug.Log("c'est tipar");
@@ -56,8 +58,8 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log(transform.position);
             Debug.Log(respawnPoint);
             transform.position = respawnPoint;
-            //currentHealth = 3;
-            //healthBar.SetHealth(currentHealth);
+            currentHealth = 3;
+            healthBar.SetHealth(currentHealth);
         }
 
         if(damage.hitted)

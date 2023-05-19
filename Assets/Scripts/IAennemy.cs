@@ -12,7 +12,7 @@ public class IAennemy : MonoBehaviour
     [SerializeField] GameObject Player;
     Animator animController;
     Queue<Vector3> posPlayer = new Queue<Vector3>();
-    Queue<bool> flipPlayer = new Queue<bool>();
+    //Queue<bool> flipPlayer = new Queue<bool>();
     bool canFollow = false;
     bool Init = true;
 

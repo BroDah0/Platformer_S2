@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     Animator animController;
     TrailRenderer tre;
+    [SerializeField] TrailRenderer tr;
     SprintBar sprint_bar;
     SlideBar slide_bar;
     [SerializeField] GameObject aide;
@@ -21,8 +22,9 @@ public class Player : MonoBehaviour
     float vertical_value;
     Vector2 ref_velocity = Vector2.zero;
     Vector2 target_velocity;
+    private Vector2 slidingDir;
+
     float jumpForce = 18f;
-    [SerializeField] TrailRenderer tr;
     [SerializeField] float moveSpeed_horizontal = 650.0f;
     [SerializeField] float sprintSpeed_horizontal = 850.0f;
     [SerializeField] bool is_jumping = false;
@@ -32,13 +34,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float slidingVelocity;
     [SerializeField] private float slidingTime = 0.4f;
     [SerializeField] private bool cooldownSprint = false;
-    private Vector2 slidingDir;
     [SerializeField] private bool is_sliding;
     private bool canSlide = true;
     [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
     float Climb_speed = 390.0f;
     public bool isLadder = false;
     public bool canClimb = false;
+    
     bool CheckSphere;
     private Vector2 aidepose;
 
