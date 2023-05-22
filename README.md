@@ -20,15 +20,11 @@ IMPORTANT
 -       Rigger et animer Astaroth (marche et lancer)
 -	Blockout grotte 
 -	Dessiner les ennemies
--	Faire et ajouter l'art de la salle du trone et de la grotte
--       Lighting grotte
+-	Faire et ajouter l'art de la ville, la salle du trone et de la grotte
 -	Parallaxe
 CODE	
 -	perfectionner l'ia
--	Ajouter les cooldowns du sprint et du slide dans l’ATH et le chronomètre
 -	Coder Astaroth et les boules de feu
--	Coder la fin de la grotte
--	Coder des points de respawn
 
 POLISH	
 -	Coder et faire le menu du jeu
