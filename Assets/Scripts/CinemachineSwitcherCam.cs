@@ -9,7 +9,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] bool trone;
     [SerializeField] bool proche;
     [SerializeField] Animator animator;
-    public Light spotlight;
+    public GameObject spotlight;
     public Light globalLight;
 
     private void Start()
@@ -36,8 +36,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (proche)
             {
                 animator.SetBool("Proche", true);
-                Light light = Instantiate(spotlight, transform.position, transform.rotation);
-                Light light2 = Instantiate(globalLight, transform.position, transform.rotation);
+                spotlight.SetActive(true);
             }
                
         }
