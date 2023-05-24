@@ -148,7 +148,6 @@ public class Player : MonoBehaviour
         }
         else if (!is_crouching && !is_sliding)
         {
-            UnityEngine.Debug.Log("nan");
             is_crouching = false;
             moveSpeed_horizontal = 650f;
             cap.offset = new Vector2(0.3032157f, 30.07f);

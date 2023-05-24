@@ -15,13 +15,10 @@ public class CinemachineSwitcherCam : MonoBehaviour
     public Light globalLight;
     public AudioSource disasterpiece;
     public AudioSource karen3;
-    public bool playMusic;
 
     private void Start()
     {
-        disasterpiece = GetComponent<AudioSource>();
-        karen3 = GetComponent<AudioSource>();
-        playMusic = true;
+
     }
     private void Update()
     {
@@ -32,10 +29,9 @@ public class CinemachineSwitcherCam : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (debut && playMusic == true)
+            if (debut)
             {
                 animator.SetBool("Debut", true);
-                disasterpiece.Play();
             }
             if (trone)
             {
@@ -45,10 +41,14 @@ public class CinemachineSwitcherCam : MonoBehaviour
             {
                 animator.SetBool("Proche", true);
                 spotlight.SetActive(true);
+                disasterpiece.Play();
+                Debug.Log("Detroit by Disasterpiece now playing");
             }
-            if (fin && playMusic == true)
+            if (fin)
             {
+                animator.SetBool("Fin", true);
                 karen3.Play();
+                Debug.Log("Karen3 by Smaland now playing");
             }
 
         }
@@ -58,10 +58,9 @@ public class CinemachineSwitcherCam : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (debut && playMusic == false)
+            if (debut)
             {
                 animator.SetBool("Debut", false);
-                disasterpiece.Stop();
             }
             if (trone)
             {
@@ -72,10 +71,11 @@ public class CinemachineSwitcherCam : MonoBehaviour
                 animator.SetBool("Proche", false);
                 GameObject.Destroy(spotlight);
                 GameObject.Destroy(globalLight);
+                disasterpiece.Stop();
             }
-            if (fin && playMusic == false)
+            if (fin)
             {
-                karen3.Stop();
+                animator.SetBool("Fin", false);
             }
         }
     }
