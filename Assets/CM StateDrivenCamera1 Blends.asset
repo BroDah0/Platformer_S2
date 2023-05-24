@@ -39,6 +39,39 @@ MonoBehaviour:
     m_To: CM vcam3 Proche
     m_Blend:
       m_Style: 1
+      m_Time: 0.5
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam3 Proche
+    m_To: CM vcam2 Trone
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam2 Trone
+    m_To: CM vcam4 Fin
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam4 Fin
+    m_To: CM vcam2 Trone
+    m_Blend:
+      m_Style: 1
       m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
@@ -50,7 +83,7 @@ MonoBehaviour:
     m_To: CM vcam4 Fin
     m_Blend:
       m_Style: 1
-      m_Time: 5
+      m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []

@@ -11,16 +11,23 @@ public class IAennemy : MonoBehaviour
 {
     [SerializeField] GameObject Player;
     Animator animController;
+    Rigidbody2D rb;
     Queue<Vector3> posPlayer = new Queue<Vector3>();
     //Queue<bool> flipPlayer = new Queue<bool>();
     bool canFollow = false;
     bool Init = true;
+    float horizontal_value;
+    float vertical_value;
+    Vector2 ref_velocity = Vector2.zero;
+    Vector2 target_velocity;
 
     public Vector2 StartPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        animController = GetComponent<Animator>();
         StartPos = transform.position;
         Invoke("Waiting", 0.6f);
     }
@@ -46,7 +53,12 @@ public class IAennemy : MonoBehaviour
         if (Init)
         {
             transform.Translate((Player.transform.position - transform.position)* 2f * Time.deltaTime, Space.World);
+            animController.SetFloat("Speed", Mathf.Abs(2f));
         }
+        /*if (Player.rb.velocity.y > 0.1f )
+        {
+            animController.SetBool("Jump", true);
+        }*/
     }
 
    void Waiting()

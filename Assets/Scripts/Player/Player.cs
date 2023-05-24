@@ -122,6 +122,10 @@ public class Player : MonoBehaviour
         if (is_jumping && grounded && !canClimb)
         {           
             is_jumping = false;
+            if (rb.velocity.y <0)
+            {
+                rb.velocity = Vector2.zero;
+            }
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             animController.SetBool("Jumping", true);
             grounded = false;
