@@ -30,5 +30,15 @@ POLISH
 -       Crédit avec musique
 -       Cinématique début et fin
 
+Retour playtest alpha 2.0: 
+-       On s'ennuie (a part courir et slider rarement rien ne donne d'adrenaline)
+-       Problème de plateforme (pas assez grande pour laisser le joueur de la liberté dans le saut)
+-       Tomber et remonter sur les arbres est très frustrants, mieux vaut mourir instatanément de la chute
+-       Supprimer l'échelle
+-       Cooldown Slide passe de 7s a 3s
+-       Donner plusieures possibilitées de chemin 
+-       Ajouter des assets décoratifs 
+-       Ajouter des events de plateforme dans la grotte 
+
 
 
