@@ -15,6 +15,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
     public GameObject globalLight;
     public AudioSource disasterpiece;
     public AudioSource karen3;
+    public AudioSource SubwaySurfers;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (debut)
             {
                 animator.SetBool("Debut", true);
+                SubwaySurfers.Play();
             }
             if (trone)
             {
@@ -62,6 +64,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (debut)
             {
                 animator.SetBool("Debut", false);
+                SubwaySurfers.Stop();
             }
             if (trone)
             {

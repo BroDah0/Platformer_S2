@@ -17,19 +17,17 @@ Mécaniques implémentées :
 	A faire :
 IMPORTANT	
 -	Animer Alex (reste plus que le climb)
--       Rigger et animer Astaroth (marche et lancer) 
+-       Rigger et animer Astaroth (marche et lancer)
+-       Rigger et animer les ennemis (course et saut)
 -	Dessiner les ennemis
--	Dessiner et ajouter l'art de la ville (voiture), la salle du trone et de la grotte
--	Parallaxe grotte
--       LD grotte
-CODE	
--	Perfectionner l'ia
--	Coder ia Astaroth et les boules de feu
+-	Dessiner et ajouter l'art de la ville (voiture), la salle du trone et de la grotte	
+-	Perfectionner l'ia (stun quand takedamage)
+-	Coder ia Astaroth et les boules de feu + dans la grotte
 
 POLISH	
 -	Coder et faire le menu du jeu
 -	Mettre du texte aide touche
--       Crédit avec musique 
+-       Crédit avec musique
 -       Cinématique début et fin
 
 

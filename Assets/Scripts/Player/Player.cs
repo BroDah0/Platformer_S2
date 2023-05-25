@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
         is_sliding = false;
         is_crouching = false;
         StartCoroutine(slide_bar.SlideCooldown());
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(1f);
         canSlide = true;
     }
 

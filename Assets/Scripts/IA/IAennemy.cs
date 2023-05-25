@@ -29,7 +29,7 @@ public class IAennemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animController = GetComponent<Animator>();
         StartPos = transform.position;
-        Invoke("Waiting", 0.6f);
+        Invoke("Waiting", Random.Range(0.4f, 0.8f));
     }
 
     private void Awake()
