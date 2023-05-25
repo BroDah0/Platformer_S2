@@ -16,6 +16,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
     public AudioSource disasterpiece;
     public AudioSource karen3;
     public AudioSource SubwaySurfers;
+    public AudioSource ClericBeast;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (trone)
             {
                 animator.SetBool("Trone", true);
+                ClericBeast.Play();
             }
             if (proche)
             {
@@ -69,6 +71,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (trone)
             {
                 animator.SetBool("Trone", false);
+                ClericBeast.Stop();
             }
             if (proche)
             {
