@@ -62,19 +62,28 @@ public class PlayerHealth : MonoBehaviour
             healthBar.SetHealth(currentHealth);
         }
 
-        if(damage.hitted)
+        /*if(damage.hitted)
+        {
+            TakeDamage(1);
+        }*/
+    }
+
+    void FixedUpdate()
+    {
+        if (damage)
         {
             TakeDamage(1);
         }
-    }
+    }    
 
 
     public void TakeDamage (int damage)
     {
-        Debug.Log(damage);
+        //Debug.Log(damage);
         currentHealth = currentHealth - damage;  // si on prends des degats ont retire de la vie a la vie actuelle
         healthBar.SetHealth(currentHealth); // pour mettre a jour le visuel de la barre de vie
         Debug.Log(currentHealth);
+
     }
 
     /*

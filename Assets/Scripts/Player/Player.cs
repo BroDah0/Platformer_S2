@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
         is_sliding = false;
         is_crouching = false;
         StartCoroutine(slide_bar.SlideCooldown());
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         canSlide = true;
     }
 
@@ -206,10 +206,10 @@ public class Player : MonoBehaviour
         StartCoroutine(sprint_bar.SprintCooldown());
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         is_sprinting = false;
         cooldownSprint = true;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(6f);
         cooldownSprint = false;
     }
 

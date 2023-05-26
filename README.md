@@ -37,7 +37,7 @@ Retour playtest alpha 2.0:
 -       Supprimer l'échelle
 -       Cooldown Slide passe de 7s a 3s
 -       Donner plusieures possibilitées de chemin 
--       Ajouter des assets décoratifs 
+-       Ajouter des assets décoratifs ( faire en sorte que les maisons et les arbres soit des assets séparés et assemblable)
 -       Ajouter des events de plateforme dans la grotte 
 
 
