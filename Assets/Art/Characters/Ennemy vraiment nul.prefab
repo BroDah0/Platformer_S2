@@ -995,7 +995,7 @@ GameObject:
   - component: {fileID: 8869018528770667320}
   - component: {fileID: -6320706996643218304}
   m_Layer: 0
-  m_Name: Ennemy nul
+  m_Name: Ennemy vraiment nul
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
