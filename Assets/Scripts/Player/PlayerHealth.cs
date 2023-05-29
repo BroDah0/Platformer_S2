@@ -115,5 +115,14 @@ public class PlayerHealth : MonoBehaviour
                 hitted = true;
             }
         }
+        
+        if (collision.gameObject.CompareTag("Astaroth"))
+        {
+            if (!hitted)
+            {
+                TakeDamage(1);
+                hitted = true;
+            }
+        }
     }
 }

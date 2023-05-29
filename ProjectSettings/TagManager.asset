@@ -9,6 +9,7 @@ TagManager:
   - Ennemy
   - OneWayPlatform
   - Checkpoint
+  - Astaroth
   layers:
   - Default
   - TransparentFX

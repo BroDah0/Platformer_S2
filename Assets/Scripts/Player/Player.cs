@@ -204,6 +204,7 @@ public class Player : MonoBehaviour
     IEnumerator Sprint()
     {
         StartCoroutine(sprint_bar.SprintCooldown());
+        animController.SetBool("Sprinting", true);
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         target_velocity = new Vector2(horizontal_value * sprintSpeed_horizontal * Time.deltaTime, rb.velocity.y);
         yield return new WaitForSeconds(2f);
