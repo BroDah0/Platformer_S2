@@ -27,11 +27,13 @@ public class IaAstaroth : MonoBehaviour
     bool grounded = false;
     Seeker seeker;
     Rigidbody2D rb;
+    Animator animController;
 
     public void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animController= GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
@@ -51,6 +53,7 @@ public class IaAstaroth : MonoBehaviour
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
+            animController.SetBool("SpeedAstaroth", true);
         }
     }
 

@@ -53,7 +53,7 @@ public class IAennemy : MonoBehaviour
         if (Init)
         {
             transform.Translate((Player.transform.position - transform.position)* 2f * Time.deltaTime, Space.World);
-            animController.SetFloat("Speed", Mathf.Abs(2f));
+            animController.SetFloat("SpeedEnnemy", Mathf.Abs(2f));
         }
         /*if (Player.rb.velocity.y > 0.1f )
         {
