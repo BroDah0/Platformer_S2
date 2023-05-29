@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6986298971262301559
+--- !u!1 &5205111228357582671
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1002358224956544037}
-  - component: {fileID: 8214803927522223135}
-  - component: {fileID: 3055002304110657021}
-  m_Layer: 0
-  m_Name: bout grand maison jaune
+  - component: {fileID: 2401950358731143636}
+  - component: {fileID: 2770911849888808643}
+  - component: {fileID: 1034775698167942917}
+  m_Layer: 6
+  m_Name: bout moyen maison jaune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1002358224956544037
+--- !u!4 &2401950358731143636
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6986298971262301559}
+  m_GameObject: {fileID: 5205111228357582671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 171.2376, y: 206.0657, z: 0}
-  m_LocalScale: {x: 0.3961, y: 0.3961, z: 0.3961}
+  m_LocalPosition: {x: 177.8739, y: 204.5898, z: 0}
+  m_LocalScale: {x: 0.3886791, y: 0.3886791, z: 0.3886791}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8214803927522223135
+--- !u!212 &2770911849888808643
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6986298971262301559}
+  m_GameObject: {fileID: 5205111228357582671}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,24 +74,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bcf24a50b81ce144aa3dfd9d1aff6d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26cb1c9ad29ecb94eb9360e6ef14599b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 21.75, y: 30.25}
+  m_Size: {x: 27.625, y: 23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &3055002304110657021
+--- !u!68 &1034775698167942917
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6986298971262301559}
+  m_GameObject: {fileID: 5205111228357582671}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -101,13 +101,15 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.864167, y: -14.882039}
-  - {x: -9.612964, y: 7.2940893}
-  - {x: -11.002127, y: 7.2917395}
-  - {x: 0.16348743, y: 15.097991}
-  - {x: 10.880737, y: 7.367128}
-  - {x: 8.968362, y: 7.3698635}
-  - {x: 9.058275, y: -14.974417}
+  - {x: -11.569608, y: -11.63609}
+  - {x: -11.525936, y: 1.4021235}
+  - {x: -12.976837, y: 0.19509459}
+  - {x: -13.8275585, y: 1.2917687}
+  - {x: -0.10757148, y: 11.544915}
+  - {x: 13.80007, y: 1.4093075}
+  - {x: 13.192159, y: 0.48289543}
+  - {x: 11.656109, y: 1.5549154}
+  - {x: 11.5762825, y: -11.5964}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

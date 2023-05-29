@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     Vector2 target_velocity;
     private Vector2 slidingDir;
 
-    float jumpForce = 18f;
+    [SerializeField] float jumpForce = 18f;
     [SerializeField] float moveSpeed_horizontal = 650.0f;
     [SerializeField] float sprintSpeed_horizontal = 850.0f;
     [SerializeField] bool is_jumping = false;
@@ -44,6 +44,14 @@ public class Player : MonoBehaviour
     bool CheckSphere;
     private Vector2 aidepose;
 
+    [SerializeField] float coolDownSlide = 2;
+
+    bool holdJump;
+    bool duringJump;
+   [SerializeField] float forceDown;
+    [SerializeField] float forcePente;
+    [SerializeField] float velocity;
+
     void Start()
     {
         cap = GetComponent<CapsuleCollider2D>();
@@ -58,6 +66,9 @@ public class Player : MonoBehaviour
  
     void Update()
     {
+
+        velocity = rb.velocity.y;
+
         horizontal_value = Input.GetAxis("Horizontal");
         vertical_value = Input.GetAxis("Vertical");
 
@@ -69,6 +80,8 @@ public class Player : MonoBehaviour
 
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
 
+        if (Input.GetButton("Jump")) holdJump = true;
+        else if (Input.GetButtonUp("Jump")) holdJump = false;
         // Jump
         if (Input.GetButtonDown("Jump") && grounded && !is_crouching)
         {
@@ -120,16 +133,21 @@ public class Player : MonoBehaviour
     {       
         // Jump
         if (is_jumping && grounded && !canClimb)
-        {           
+        {
+            duringJump = true;
             is_jumping = false;
-            if (rb.velocity.y <0)
+            /*if (rb.velocity.y <0)
             {
                 rb.velocity = Vector2.zero;
-            }
+            }*/
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             animController.SetBool("Jumping", true);
             grounded = false;
         }
+
+        if(!holdJump && duringJump) rb.AddForce(new Vector2(0, -forceDown), ForceMode2D.Force);
+
+        //if(rb.velocity.y > 22f) rb.AddForce(new Vector2(0, -forcePente ), ForceMode2D.Force);
 
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.deltaTime, rb.velocity.y);
 
@@ -196,7 +214,7 @@ public class Player : MonoBehaviour
         is_sliding = false;
         is_crouching = false;
         StartCoroutine(slide_bar.SlideCooldown());
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(coolDownSlide);
         canSlide = true;
     }
 
@@ -220,6 +238,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             grounded = true;
+            duringJump = false;
             animController.SetBool("Jumping", false);
         }
 
