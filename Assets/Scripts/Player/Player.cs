@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
 
     bool holdJump;
     bool duringJump;
-   [SerializeField] float forceDown;
+    [SerializeField] float forceDown;
     [SerializeField] float forcePente;
-    [SerializeField] float velocity;
+    //[SerializeField] float velocity;
 
     void Start()
     {
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        velocity = rb.velocity.y;
+        //velocity = rb.velocity.y;
 
         horizontal_value = Input.GetAxis("Horizontal");
         vertical_value = Input.GetAxis("Vertical");

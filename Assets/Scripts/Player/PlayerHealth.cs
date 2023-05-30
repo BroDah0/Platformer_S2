@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 respawnPoint;
 
     public HealthBar healthBar;
+    public LayerMask zone_morte;
     public EnnemyManager EnnemyManager;
     private TakeDamage damage;
     IAennemy ennemy;
@@ -102,6 +103,15 @@ public class PlayerHealth : MonoBehaviour
         {
             respawnPoint = transform.position;
             Debug.Log("checkpoint");
+        }
+
+        if (collision.gameObject.layer == 10)
+        {
+            if (!hitted)
+            {
+                TakeDamage(3);
+                hitted = true;
+            }
         }
     }
 

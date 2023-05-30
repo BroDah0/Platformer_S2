@@ -10,6 +10,7 @@ TagManager:
   - OneWayPlatform
   - Checkpoint
   - Astaroth
+  - SolMort
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - background
   - firstplan
   - background2
-  - 
+  - zonemorte
   - 
   - 
   - 

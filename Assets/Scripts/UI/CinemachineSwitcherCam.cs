@@ -35,11 +35,13 @@ public class CinemachineSwitcherCam : MonoBehaviour
             {
                 animator.SetBool("Debut", true);
                 SubwaySurfers.Play();
+                Debug.Log("Subway Surfers Music now playing");
             }
             if (trone)
             {
                 animator.SetBool("Trone", true);
                 ClericBeast.Play();
+                Debug.Log("Bloodborne Music now playing");
             }
             if (proche)
             {
