@@ -16,18 +16,17 @@ Mécaniques implémentées :
 
 	A faire :
 IMPORTANT	
--       Animer les ennemis (course et saut)
--	  Dessiner et ajouter l'art de la ville (voiture), la salle du trone et de la grotte	
--	  Perfectionner l'ia (stun quand takedamage)
+-	  Dessiner et ajouter l'art de la ville (camion et immeuble), la salle du trone (mur, sol et fond) et de la grotte (sol)	
+-	  Perfectionner l'ia
 -	  Coder ia Astaroth dans la salle du trone
--       Coder poursuite Ia Astaroth dans la grotte
--       Faire les FX (poussières pieds, boule de feu noires et mur qui se brise)
+-         Coder poursuite Ia Astaroth dans la grotte
+-         Faire les FX (poussières pieds, mur et plateforme qui se brise, voiture bouge quand on tombe dessus)
 
 POLISH	
 -	  Coder et faire le menu du jeu
 -	  Mettre du texte aide touche
--       Crédit avec musique
--       Musique du jeu 
+-         Crédit avec musique
+-         Musique du jeu 
 
 Retour playtest alpha 2.0: 
 -       On s'ennuie (a part courir et slider rarement rien ne donne d'adrenaline)
