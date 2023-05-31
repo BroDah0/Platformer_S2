@@ -22,6 +22,7 @@ public class IaAstarothmieux : MonoBehaviour
     Vector2 ref_velocity = Vector2.zero;
     Vector2 target_velocity;
     public PlayerHealth PlayerHealth;
+    public CinemachineSwitcherCam cam;
 
     public Vector2 StartPos;
 
@@ -64,7 +65,7 @@ public class IaAstarothmieux : MonoBehaviour
             StartCoroutine(Timer());
             if (isTimed)
             {
-                transform.Translate((Player.transform.position - transform.position) * 1f * Time.deltaTime, Space.World);                      
+                transform.Translate((Player.transform.position - transform.position) * 4f * Time.deltaTime, Space.World);                      
             }
 
             animController.SetFloat("SpeedAstaroth", Mathf.Abs(1f));
@@ -72,10 +73,10 @@ public class IaAstarothmieux : MonoBehaviour
             
         }
 
-        if(PlayerHealth.currentHealth == 0)
+        /*if(PlayerHealth.currentHealth == 0)
         {
             Destroy(GameObject.FindWithTag("Astaroth"));
-        }
+        }*/
 
         /*if (Player.rb.velocity.y > 0.1f )
         {

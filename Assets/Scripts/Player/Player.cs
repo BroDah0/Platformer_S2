@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     SprintBar sprint_bar;
     SlideBar slide_bar;
     [SerializeField] GameObject aide;
-
     //Variables
     float horizontal_value;
     float vertical_value;
@@ -72,8 +71,21 @@ public class Player : MonoBehaviour
         horizontal_value = Input.GetAxis("Horizontal");
         vertical_value = Input.GetAxis("Vertical");
 
-        if (horizontal_value > 0) gameObject.transform.localScale = new Vector3(0.06f,0.06f,0);   //sr.flipX = false;
-        else if (horizontal_value < 0) gameObject.transform.localScale = new Vector3(-0.06f,0.06f, 0);
+        if (horizontal_value > 0)
+
+        {
+            gameObject.transform.localScale = new Vector3(0.06f, 0.06f, 0);
+
+
+        }   //sr.flipX = false;
+
+        else if (horizontal_value < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-0.06f, 0.06f, 0);
+
+
+
+        }
 
         //if (rb.velocity.y < 0) rb.gravityScale = 5;
         //else rb.gravityScale = 3;

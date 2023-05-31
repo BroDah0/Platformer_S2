@@ -44,7 +44,7 @@ public class IAennemy : MonoBehaviour
         //if (Player.gameObject.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
         posPlayer.Enqueue(Player.transform.position);
         //flipPlayer.Enqueue(Player.transform.localScale.);
-        
+
         if (canFollow)
         {
             transform.position = posPlayer.Dequeue();
@@ -52,7 +52,7 @@ public class IAennemy : MonoBehaviour
         }
         if (Init)
         {
-            transform.Translate((Player.transform.position - transform.position)* 2f * Time.deltaTime, Space.World);
+            transform.Translate((Player.transform.position - transform.position) * 2f * Time.deltaTime, Space.World);
             animController.SetFloat("SpeedEnnemy", Mathf.Abs(2f));
         }
         /*if (Player.rb.velocity.y > 0.1f )
@@ -61,7 +61,7 @@ public class IAennemy : MonoBehaviour
         }*/
     }
 
-   void Waiting()
+    void Waiting()
     {
         Init = false;
         canFollow = true;

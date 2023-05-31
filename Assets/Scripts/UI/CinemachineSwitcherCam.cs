@@ -56,6 +56,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
                 animator.SetBool("Fin", true);
                 karen3.Play();
                 Debug.Log("Karen3 by Smaland now playing");
+                Destroy(GameObject.FindWithTag("Astaroth"));
             }
 
         }

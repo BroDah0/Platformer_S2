@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("-1 health point");
         }
 
-        //if(currentHealth < 0) currentHealth = 0;
+        if(currentHealth < 0) currentHealth = 0;
         if (currentHealth == 0)
         {
             //Debug.Log("c'est tipar");
@@ -104,14 +104,13 @@ public class PlayerHealth : MonoBehaviour
             respawnPoint = transform.position;
             Debug.Log("checkpoint");
         }
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.gameObject.layer == 10)
-        {
-            if (!hitted)
-            {
+        { 
                 TakeDamage(3);
-                hitted = true;
-            }
         }
     }
 
