@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] SoundManagement sound;
     public void PlayGame()
     {
+        SoundManagement.SliderVolume = sound.slider.value;
+        sound.audioMixer.GetFloat("volume", out SoundManagement.MainVolume);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

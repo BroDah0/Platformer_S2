@@ -86,6 +86,8 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (fin)
             {
                 animator.SetBool("Fin", false);
+                karen3.Stop();
+
             }
         }
     }

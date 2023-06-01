@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] SoundManagement sound;
 
     public static bool GameIsPaused = false;
 
@@ -34,6 +35,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        SoundManagement.SliderVolume = sound.slider.value;
+        sound.audioMixer.GetFloat("volume", out SoundManagement.MainVolume);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
