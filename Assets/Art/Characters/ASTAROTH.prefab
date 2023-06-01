@@ -1684,6 +1684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: -8653719598885068355, guid: 3c5aed270f2416a40b73f577d7de79ce, type: 3}
   PlayerHealth: {fileID: 0}
+  cam: {fileID: 0}
   StartPos: {x: 0, y: 0}
 --- !u!82 &-815408567167129462
 AudioSource:
@@ -1692,7 +1693,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9069463788665579107}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9e0292a379265344daa209a0c90e8891, type: 3}

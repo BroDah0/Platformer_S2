@@ -13,10 +13,10 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] Animator animator;
     public GameObject spotlight;
     public GameObject globalLight;
-    public AudioSource disasterpiece;
+    public AudioSource horrormusic;
     public AudioSource karen3;
-    public AudioSource SubwaySurfers;
-    public AudioSource ClericBeast;
+    public AudioSource EpicMusic;
+    public AudioSource Astarothmusic;
 
     private void Start()
     {
@@ -34,22 +34,22 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (debut)
             {
                 animator.SetBool("Debut", true);
-                SubwaySurfers.Play();
-                Debug.Log("Subway Surfers Music now playing");
+                EpicMusic.Play();
+                Debug.Log("Epic Music now playing");
             }
             if (trone)
             {
                 animator.SetBool("Trone", true);
-                ClericBeast.Play();
-                Debug.Log("Bloodborne Music now playing");
+                Astarothmusic.Play();
+                Debug.Log("Majestuous Music now playing");
             }
             if (proche)
             {
                 animator.SetBool("Proche", true);
                 spotlight.SetActive(true);
                 globalLight.SetActive(true);
-                disasterpiece.Play();
-                Debug.Log("Detroit by Disasterpiece now playing");
+                horrormusic.Play();
+                Debug.Log("Horror music now playing");
             }
             if (fin)
             {
@@ -69,19 +69,19 @@ public class CinemachineSwitcherCam : MonoBehaviour
             if (debut)
             {
                 animator.SetBool("Debut", false);
-                SubwaySurfers.Stop();
+                EpicMusic.Stop();
             }
             if (trone)
             {
                 animator.SetBool("Trone", false);
-                ClericBeast.Stop();
+                Astarothmusic.Stop();
             }
             if (proche)
             {
                 animator.SetBool("Proche", false);
                 spotlight.SetActive(false);
                 globalLight.SetActive(false);
-                disasterpiece.Stop();
+                horrormusic.Stop();
             }
             if (fin)
             {
