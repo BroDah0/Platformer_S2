@@ -10,14 +10,20 @@ public class activateSprite : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        blockFond.SetActive(true);
-        blockSol.SetActive(true);
+        if (collision.CompareTag("Player"))
+        {
+            blockFond.SetActive(true);
+            blockSol.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        blockFond.SetActive(false);
-        blockSol.SetActive(false);
+        if (collision.CompareTag("Player"))
+        {
+            blockFond.SetActive(false);
+            blockSol.SetActive(false);
+        }
     }
 
 }

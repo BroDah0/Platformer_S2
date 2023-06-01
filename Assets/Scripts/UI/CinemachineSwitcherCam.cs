@@ -13,6 +13,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] Animator animator;
     public GameObject spotlight;
     public GameObject globalLight;
+    public GameObject squareLight;
     public AudioSource horrormusic;
     public AudioSource karen3;
     public AudioSource EpicMusic;
@@ -48,6 +49,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
                 animator.SetBool("Proche", true);
                 spotlight.SetActive(true);
                 globalLight.SetActive(true);
+                squareLight.SetActive(true);
                 horrormusic.Play();
                 Debug.Log("Horror music now playing");
             }
@@ -81,6 +83,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
                 animator.SetBool("Proche", false);
                 spotlight.SetActive(false);
                 globalLight.SetActive(false);
+                squareLight.SetActive(false);
                 horrormusic.Stop();
             }
             if (fin)
