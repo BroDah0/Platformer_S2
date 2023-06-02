@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class CinemachineSwitcherCam : MonoBehaviour
@@ -11,6 +12,8 @@ public class CinemachineSwitcherCam : MonoBehaviour
     [SerializeField] bool proche;
     [SerializeField] bool fin;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject blockinvisible;
+    public transition transition;
     public GameObject spotlight;
     public GameObject globalLight;
     public GameObject squareLight;
@@ -58,6 +61,7 @@ public class CinemachineSwitcherCam : MonoBehaviour
                 animator.SetBool("Fin", true);
                 karen3.Play();
                 Debug.Log("Karen3 by Smaland now playing");
+                blockinvisible.SetActive(true);
                 Destroy(GameObject.FindWithTag("Astaroth"));
             }
 

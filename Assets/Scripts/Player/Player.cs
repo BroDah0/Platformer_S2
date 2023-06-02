@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     SprintBar sprint_bar;
     SlideBar slide_bar;
     [SerializeField] GameObject aide;
+    public ParticleSystem FXfumee;
     //Variables
     float horizontal_value;
     float vertical_value;
@@ -75,16 +76,20 @@ public class Player : MonoBehaviour
 
         {
             gameObject.transform.localScale = new Vector3(0.06f, 0.06f, 0);
-
+            if(grounded)
+            {
+                CreateFumee();
+            }
 
         }   //sr.flipX = false;
 
         else if (horizontal_value < 0)
         {
             gameObject.transform.localScale = new Vector3(-0.06f, 0.06f, 0);
-
-
-
+            if(grounded)
+            {
+                CreateFumee();
+            }
         }
 
         //if (rb.velocity.y < 0) rb.gravityScale = 5;
@@ -212,6 +217,7 @@ public class Player : MonoBehaviour
         cap.size = new Vector2(59.85606f, 10.40589f);
         cap.direction = CapsuleDirection2D.Horizontal;
         animController.SetBool("Sliding", true);
+        CreateFumee();
         tre.emitting = true;
         rb.gravityScale = 45f;
         slidingDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
@@ -275,5 +281,13 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         animController.SetBool("Jumping", false);
+    }
+
+    void CreateFumee()
+    {
+        if (!FXfumee.isPlaying)
+        {
+            FXfumee.Play();
+        }
     }
 }
