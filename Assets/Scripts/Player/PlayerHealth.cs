@@ -129,7 +129,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hitted)
             {
-                TakeDamage(1);
+                TakeDamage(2);
                 hitted = true;
             }
         }
