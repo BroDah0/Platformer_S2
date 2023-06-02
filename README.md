@@ -38,5 +38,15 @@ Retour playtest alpha 2.0:
 -       Ajouter des assets décoratifs ( faire en sorte que les maisons et les arbres soit des assets séparés et assemblable)
 -       Ajouter des events de plateforme dans la grotte 
 
+Retour Mr.Aliot : 
+- jeu finis 6min
+- au bord du ragequit a cause de la complexité
+- 6.5/10 
+- level art rudimentaire
+- animation cool
+- salle du trone imcompréhensible
+- pente toit frustrante
+- 
+
 
 
